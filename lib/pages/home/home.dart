@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/pages/member/list/member_list.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _HomeState extends State<Home> {
     'assets/images/home_order_unselected.png',
     'assets/images/home_mine_unselected.png'
   ]);
-  final _pageList = List.of([Text('收款'), Text('会员'), Text('订单'), Text('我的')]);
+  final _pageList = List.of([Text('收款'), MemberList(), Text('订单'), Text('我的')]);
 
   var _index = 0;
 
