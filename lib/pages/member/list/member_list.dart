@@ -1,22 +1,83 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MemberList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('会员列表'),
-      ),
-      body: ListView(
-        children: List.generate(100, (position) {
-          return _ItemView();
-        }),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('会员列表'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Container(
+              height: 60,
+              padding: EdgeInsets.all(8),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(4),
+                  color: Color(0xffF4F4F4),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      'assets/images/member_list_search.png',
+                      scale: 4,
+                    ),
+                    Expanded(
+                        child: Padding(
+                      padding: EdgeInsets.only(
+                        left: 8,
+                        right: 8,
+                      ),
+                      child: TextField(
+                          maxLength: 11,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
+                          cursorColor: Color(0xff333333),
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xff333333),
+                          ),
+                          //todo:contentPadding
+                          decoration: InputDecoration(
+                            counterText: '',
+                            border: InputBorder.none,
+                          )),
+                    )),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: 30,
+              width: double.infinity,
+              alignment: Alignment.center,
+              color: Color(0xffE7F3FF),
+              child: Text(
+                '共100条会员数据',
+                style: TextStyle(color: Color(0xff1890FF), fontSize: 13),
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: List.generate(100, (position) {
+                  return _MemberListItemView();
+                }),
+              ),
+            ),
+          ],
+        ));
   }
 }
 
-class _ItemView extends StatelessWidget {
+class _MemberListItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -99,7 +160,8 @@ class _ItemView extends StatelessWidget {
           ),
           Image.asset(
             'assets/images/common_more.png',
-            scale: 4,
+            width: 5,
+            height: 10,
           ),
           SizedBox(
             width: 18,
