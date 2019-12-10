@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/pages/member/list/member_list.dart';
+import 'package:gas_station/res/clrs.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -57,8 +58,8 @@ class _HomeState extends State<Home> {
         iconSize: 20,
         unselectedFontSize: 11,
         backgroundColor: Colors.white,
-        fixedColor: Color.fromARGB(255, 24, 144, 255),
-        unselectedItemColor: Color.fromARGB(255, 204, 204, 204),
+        fixedColor: Clrs.colorPrimary,
+        unselectedItemColor: Clrs.lightTextBlack,
         type: BottomNavigationBarType.fixed,
         items: List.generate(_pageList.length, (position) {
           return BottomNavigationBarItem(

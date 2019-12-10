@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gas_station/res/clrs.dart';
+import 'package:gas_station/res/dimens.dart';
 
 class MemberList extends StatelessWidget {
   @override
@@ -40,10 +42,10 @@ class MemberList extends StatelessWidget {
                           inputFormatters: [
                             WhitelistingTextInputFormatter.digitsOnly
                           ],
-                          cursorColor: Color(0xff333333),
+                          cursorColor: Clrs.textBlack,
                           style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xff333333),
+                            fontSize: Dimens.font_large,
+                            color: Clrs.textBlack,
                           ),
                           //todo:contentPadding
                           decoration: InputDecoration(
@@ -62,7 +64,8 @@ class MemberList extends StatelessWidget {
               color: Color(0xffE7F3FF),
               child: Text(
                 '共100条会员数据',
-                style: TextStyle(color: Color(0xff1890FF), fontSize: 13),
+                style: TextStyle(
+                    color: Clrs.colorPrimary, fontSize: Dimens.font_small),
               ),
             ),
             Expanded(
@@ -111,8 +114,8 @@ class _MemberListItemView extends StatelessWidget {
                       '张三',
                       maxLines: 1,
                       style: TextStyle(
-                        color: Color(0xff333333),
-                        fontSize: 14,
+                        color: Clrs.textBlack,
+                        fontSize: Dimens.font_normal,
                       ),
                     ),
                     SizedBox(
@@ -121,7 +124,7 @@ class _MemberListItemView extends StatelessWidget {
                     Text(
                       '|',
                       style: TextStyle(
-                        color: Color(0xffDDDDDD),
+                        color: Clrs.lightTextBlack,
                       ),
                     ),
                     SizedBox(
@@ -140,7 +143,7 @@ class _MemberListItemView extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(2),
-                        color: Color(0xff178BFB),
+                        color: Clrs.colorPrimary,
                       ),
                     ),
                   ],
@@ -150,7 +153,7 @@ class _MemberListItemView extends StatelessWidget {
                 ),
                 Text(
                   '151 0349 0345',
-                  style: TextStyle(color: Color(0xff888888), fontSize: 11),
+                  style: TextStyle(color: Clrs.subTextBlack, fontSize: 11),
                 ),
               ],
             ),
