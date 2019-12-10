@@ -7,6 +7,7 @@ class MemberList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text('会员列表'),
         ),
