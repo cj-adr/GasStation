@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gas_station/pages/record/list/recordListPage.dart';
+import 'package:gas_station/pages/record/list/record_list_page.dart';
 
 void main() {
   runApp(MyApp());
