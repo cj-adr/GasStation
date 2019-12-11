@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gas_station/pages/home/home_page.dart';
-import 'package:gas_station/res/styles.dart';
+import 'package:gas_station/res/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: Styles.appTheme,
+      theme: Themes.appTheme,
       home: HomePage(),
     );
   }

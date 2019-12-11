@@ -123,7 +123,7 @@ class _MemberListItemView extends StatelessWidget {
                     Text(
                       '|',
                       style: TextStyle(
-                        color: Clrs.lightTextBlack,
+                        color: Clrs.textBlackLight,
                       ),
                     ),
                     SizedBox(
@@ -153,7 +153,7 @@ class _MemberListItemView extends StatelessWidget {
                 ),
                 Text(
                   '151 0349 0345',
-                  style: TextStyle(color: Clrs.subTextBlack, fontSize: 11),
+                  style: TextStyle(color: Clrs.textBlackSub, fontSize: 11),
                 ),
               ],
             ),

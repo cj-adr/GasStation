@@ -21,7 +21,7 @@ class RecordDetailPage extends StatelessWidget {
   /// 构建标题栏
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
-      leading: BackButton(color: Clrs.subTextBlack2),
+      leading: BackButton(color: Clrs.textBlackSub2),
       title: Text("交班详情", style: TextStyle(fontSize: Dimens.font_title, color: Clrs.textBlack)),
       centerTitle: true,
       actions: <Widget>[
@@ -74,7 +74,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               top: 0,
               child: Text(
                 "上次交班时间",
-                style: TextStyle(color: Clrs.subTextBlack2, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_small_big),
               )),
           Positioned(
               right: 0,
@@ -88,7 +88,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               bottom: 0,
               child: Text(
                 "本次交班时间",
-                style: TextStyle(color: Clrs.subTextBlack2, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_small_big),
               )),
           Positioned(
               right: 0,
@@ -169,7 +169,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
         child: Column(
           children: <Widget>[
             Text(name,
-                style: TextStyle(color: Clrs.lightTextBlack, fontSize: Dimens.font_small_big)),
+                style: TextStyle(color: Clrs.textBlackLight, fontSize: Dimens.font_small_big)),
             Container(height: 6),
             Text("￥$amount", style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_large))
           ],
@@ -226,7 +226,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
   }
 
   Widget _get3Txt2(String s1, String s2, String s3, bool title) {
-    var color = title ? Clrs.subTextBlack2 : Clrs.textBlack;
+    var color = title ? Clrs.textBlackSub2 : Clrs.textBlack;
     return Padding(
       padding: EdgeInsets.only(top: 10),
       child: Flex(

@@ -19,7 +19,7 @@ class RecordListPage extends StatelessWidget {
   /// 构建标题栏
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
-      leading: BackButton(color: Clrs.subTextBlack2),
+      leading: BackButton(color: Clrs.textBlackSub2),
       title: Text("交班记录",
           style: TextStyle(
             fontSize: Dimens.font_title,
@@ -93,7 +93,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
               children: <Widget>[
                 Text(
                   "订单金额：￥${record.orderAmount}",
-                  style: TextStyle(fontSize: Dimens.font_small, color: Clrs.subTextBlack2),
+                  style: TextStyle(fontSize: Dimens.font_small, color: Clrs.textBlackSub2),
                 ),
                 Row(
                   children: <Widget>[

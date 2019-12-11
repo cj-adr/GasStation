@@ -207,7 +207,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
             child: TabBar(
               indicatorSize: TabBarIndicatorSize.label,
               labelColor: Clrs.textBlack,
-              unselectedLabelColor: Clrs.subTextBlack,
+              unselectedLabelColor: Clrs.textBlackSub,
               indicatorColor: Clrs.colorPrimary,
               tabs: [
                 Tab(

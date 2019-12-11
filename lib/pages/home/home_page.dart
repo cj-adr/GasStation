@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
         unselectedFontSize: 11,
         backgroundColor: Colors.white,
         fixedColor: Clrs.colorPrimary,
-        unselectedItemColor: Clrs.lightTextBlack,
+        unselectedItemColor: Clrs.textBlackLight,
         type: BottomNavigationBarType.fixed,
         items: List.generate(_pageList.length, (position) {
           return BottomNavigationBarItem(

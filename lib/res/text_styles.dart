@@ -3,11 +3,14 @@ import 'package:gas_station/res/dimens.dart';
 
 import 'clrs.dart';
 
-class Styles {
-  static final ThemeData appTheme = ThemeData(primarySwatch: Colors.blue);
-
+class TextStyles {
   static const TextStyle TEXT_NORMAL_BLACK = const TextStyle(
     fontSize: Dimens.font_normal,
     color: Clrs.textBlack,
+  );
+
+  static const TextStyle TEXT_NORMAL_BLACKSUB = const TextStyle(
+    fontSize: Dimens.font_normal,
+    color: Clrs.textBlackSub,
   );
 }
