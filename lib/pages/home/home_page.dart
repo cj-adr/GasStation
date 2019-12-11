@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:gas_station/pages/member/list/member_list.dart';
+import 'package:gas_station/pages/member/list/member_list_page.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
-class Home extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _HomePageState();
   }
 }
 
-class _HomeState extends State<Home> {
+class _HomePageState extends State<HomePage> {
   final _bottomNavigationBarTitles = List.of(['收款', '会员', '订单', '我的']);
   final _bottomNavigationBarSelectedIcons = List.of([
     'home_pay_selected',
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
     'home_order_unselected',
     'home_mine_unselected',
   ]);
-  final _pageList = List.of([Text('收款'), MemberList(), Text('订单'), Text('我的')]);
+  final _pageList = List.of([Text('收款'), MemberListPage(), Text('订单'), Text('我的')]);
 
   var _index = 0;
 
@@ -44,13 +44,13 @@ class _HomeState extends State<Home> {
           index: _index,
           children: _pageList,
         )),
-        getBottomNavigationBar()
+        _getBottomNavigationBar()
       ],
     );
   }
 
   ///底部导航栏
-  Widget getBottomNavigationBar() {
+  Widget _getBottomNavigationBar() {
     return SizedBox(
       width: double.infinity,
       height: 54,

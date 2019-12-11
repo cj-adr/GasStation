@@ -4,7 +4,7 @@ import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
-class MemberList extends StatelessWidget {
+class MemberListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
