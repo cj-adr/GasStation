@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/pages/order/order_List.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,6 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return new OrderList();
+    }));
+    
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -105,6 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
+        
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
