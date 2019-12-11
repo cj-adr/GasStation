@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/pages/record/detail/record_detail_page.dart';
-import 'package:gas_station/utils/DateUtil.dart';
+import 'package:gas_station/utils/date_util.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
 /// 交班记录列表页

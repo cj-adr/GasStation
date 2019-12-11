@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
-import 'package:gas_station/utils/DateUtil.dart';
+import 'package:gas_station/utils/date_util.dart';
 
 /// 交班记录详情页
 class RecordDetailPage extends StatelessWidget {
