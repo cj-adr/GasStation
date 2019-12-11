@@ -1,8 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gas_station/pages/home/home.dart';
 import 'package:gas_station/pages/member/detail/member_detail.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+
+  if (Platform.isAndroid) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  }
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -23,7 +33,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MemberDetail(),
+      home: Home(),
     );
   }
 }

@@ -133,12 +133,13 @@ class _MemberListItemView extends StatelessWidget {
                     ),
                     Container(
                       padding:
-                          EdgeInsets.only(left: 4, top: 1, right: 4, bottom: 2),
+                          EdgeInsets.only(left: 4, top: 2, right: 4, bottom: 2),
                       child: Text(
                         '普通会员',
                         style: TextStyle(
                           fontSize: 10,
                           color: Colors.white,
+                          textBaseline: TextBaseline.alphabetic,
                         ),
                       ),
                       decoration: BoxDecoration(
