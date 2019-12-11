@@ -12,6 +12,6 @@ class Clrs {
   static const Color textOrange = Color(0xffFB7B1D);
   static const Color textOrangeDark = Color(0xffF86A02);
   static const Color textBlack = Color(0xff333333);
-  static const Color subTextBlack = Color(0xff888888);
-  static const Color lightTextBlack = Color(0xffcccccc);
+  static const Color textBlackSub = Color(0xff888888);
+  static const Color textBlackLight = Color(0xffcccccc);
 }
