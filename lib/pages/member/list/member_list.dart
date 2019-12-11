@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/utils/image_utils.dart';
 
 class MemberList extends StatelessWidget {
   @override
@@ -27,10 +28,7 @@ class MemberList extends StatelessWidget {
                     SizedBox(
                       width: 20,
                     ),
-                    Image.asset(
-                      'assets/images/member_list_search.png',
-                      scale: 4,
-                    ),
+                    ImageUtils.assetImage('member_list_search'),
                     Expanded(
                         child: Padding(
                       padding: EdgeInsets.only(
@@ -163,11 +161,7 @@ class _MemberListItemView extends StatelessWidget {
           SizedBox(
             width: 14,
           ),
-          Image.asset(
-            'assets/images/common_more.png',
-            width: 5,
-            height: 10,
-          ),
+          ImageUtils.assetImage('common_more', width: 5, height: 10),
           SizedBox(
             width: 18,
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/pages/member/list/member_list.dart';
 import 'package:gas_station/res/clrs.dart';
+import 'package:gas_station/utils/image_utils.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,17 +13,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final _bottomNavigationBarTitles = List.of(['收款', '会员', '订单', '我的']);
   final _bottomNavigationBarSelectedIcons = List.of([
-    'assets/images/home_pay_selected.png',
-    'assets/images/home_member_selected.png',
-    'assets/images/home_order_selected.png',
-    'assets/images/home_mine_selected.png'
+    'home_pay_selected',
+    'home_member_selected',
+    'home_order_selected',
+    'home_mine_selected',
   ]);
 
   final _bottomNavigationBarUnselectedIcons = List.of([
-    'assets/images/home_pay_unselected.png',
-    'assets/images/home_member_unselected.png',
-    'assets/images/home_order_unselected.png',
-    'assets/images/home_mine_unselected.png'
+    'home_pay_unselected',
+    'home_member_unselected',
+    'home_order_unselected',
+    'home_mine_unselected',
   ]);
   final _pageList = List.of([Text('收款'), MemberList(), Text('订单'), Text('我的')]);
 
@@ -63,12 +64,9 @@ class _HomeState extends State<Home> {
         type: BottomNavigationBarType.fixed,
         items: List.generate(_pageList.length, (position) {
           return BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage(_index == position
-                  ? _bottomNavigationBarSelectedIcons[position]
-                  : _bottomNavigationBarUnselectedIcons[position]),
-              size: 20,
-            ),
+            icon: ImageUtils.assetImage(_index == position
+                ? _bottomNavigationBarSelectedIcons[position]
+                : _bottomNavigationBarUnselectedIcons[position]),
             title: Text(_bottomNavigationBarTitles[position]),
           );
         }),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/pages/record/detail/recordDetailPage.dart';
 import 'package:gas_station/utils/DateUtil.dart';
+import 'package:gas_station/utils/image_utils.dart';
 
 /// 交班记录列表页
 class RecordListPage extends StatelessWidget {
@@ -22,10 +23,7 @@ class RecordListPage extends StatelessWidget {
       centerTitle: true,
       actions: <Widget>[
         IconButton(
-          icon: Image(
-            image: AssetImage("images/ic_record.png"),
-            width: 20.0,
-          ),
+          icon: ImageUtils.assetImage('record_calendar'),
           onPressed: () {},
         )
       ],

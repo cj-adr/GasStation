@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/utils/image_utils.dart';
 
 class MemberDetail extends StatefulWidget {
   @override
@@ -122,10 +123,7 @@ class _MemberDetailState extends State<MemberDetail>
                                             Radius.circular(2))),
                                   ),
                                 ),
-                                Image.asset(
-                                  'assets/images/member_level.png',
-                                  scale: 4,
-                                ),
+                                ImageUtils.assetImage('member_level'),
                               ],
                             ),
                           ),
@@ -145,10 +143,7 @@ class _MemberDetailState extends State<MemberDetail>
                       child: Row(
                         children: <Widget>[
                           _getPrivilegeView(
-                            Image.asset(
-                              'assets/images/member_level_discount.png',
-                              scale: 4,
-                            ),
+                            ImageUtils.assetImage('member_level_discount'),
                             RichText(
                               text: TextSpan(children: <InlineSpan>[
                                 TextSpan(
@@ -177,10 +172,7 @@ class _MemberDetailState extends State<MemberDetail>
                             color: Clrs.divide,
                           ),
                           _getPrivilegeView(
-                              Image.asset(
-                                'assets/images/member_score_rate.png',
-                                scale: 4,
-                              ),
+                              ImageUtils.assetImage('member_score_rate'),
                               RichText(
                                 text: TextSpan(children: <InlineSpan>[
                                   TextSpan(
