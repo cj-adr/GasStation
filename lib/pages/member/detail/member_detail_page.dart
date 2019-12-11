@@ -5,18 +5,18 @@ import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
-class MemberDetail extends StatefulWidget {
+class MemberDetailPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MemberDetailState();
+    return _MemberDetailPageState();
   }
 }
 
-class _MemberDetailState extends State<MemberDetail>
+class _MemberDetailPageState extends State<MemberDetailPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
-  _MemberDetailState() {
+  _MemberDetailPageState() {
     _tabController = new TabController(vsync: this, length: 2);
   }
 

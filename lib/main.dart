@@ -2,8 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gas_station/pages/home/home.dart';
-import 'package:gas_station/pages/record/list/recordListPage.dart';
+import 'package:gas_station/pages/home/home_page.dart';
 import 'package:gas_station/res/styles.dart';
 
 void main() {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: Styles.appTheme,
-      home: Home(),
+      home: HomePage(),
     );
   }
 }

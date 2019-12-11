@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
-import 'package:gas_station/pages/record/detail/recordDetailPage.dart';
+import 'package:gas_station/pages/record/detail/record_detail_page.dart';
 import 'package:gas_station/utils/DateUtil.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
@@ -8,11 +8,14 @@ import 'package:gas_station/utils/image_utils.dart';
 class RecordListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: buildTitleView(context), body: ListPage());
+    return Scaffold(
+      appBar: _buildTitleView(context),
+      body: _RecordListWidget(),
+    );
   }
 
   /// 构建标题栏
-  Widget buildTitleView(BuildContext context) {
+  Widget _buildTitleView(BuildContext context) {
     return AppBar(
       leading: BackButton(color: Color(0xFF808080)),
       title: Text("交班记录",
@@ -32,36 +35,35 @@ class RecordListPage extends StatelessWidget {
   }
 }
 
-class ListPage extends StatefulWidget {
+class _RecordListWidget extends StatefulWidget {
   @override
-  _ListPageState createState() => _ListPageState();
+  _RecordListWidgetState createState() => _RecordListWidgetState();
 }
 
-class _ListPageState extends State<ListPage> {
-  List<RecordList> recordList = [];
+class _RecordListWidgetState extends State<_RecordListWidget> {
+  final List<RecordList> _recordList = [];
 
   @override
   void initState() {
     super.initState();
 
-    getDataList();
+    _getDataList();
   }
 
   @override
   Widget build(BuildContext context) {
-    var content = recordList.isEmpty
+    var content = _recordList.isEmpty
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
-            itemCount: recordList.length,
-            itemBuilder: buildItem,
+            itemCount: _recordList.length,
+            itemBuilder: _buildItem,
           );
 
-    return Container(
-        decoration: BoxDecoration(color: Color(0xFFF4F4F4)), child: content);
+    return Container(decoration: BoxDecoration(color: Color(0xFFF4F4F4)), child: content);
   }
 
-  Widget buildItem(BuildContext context, int index) {
-    RecordList record = recordList[index];
+  Widget _buildItem(BuildContext context, int index) {
+    final RecordList record = _recordList[index];
 
     var itemView = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,14 +94,14 @@ class _ListPageState extends State<ListPage> {
                 ),
                 Row(
                   children: <Widget>[
-                    buildTxt("查看详情", record, 1),
+                    _buildTxt("查看详情", record, 1),
                     Container(
                       color: Color(0xFF979797),
                       width: 1,
                       height: 10,
                       margin: EdgeInsets.only(left: 15, right: 15),
                     ),
-                    buildTxt("补打小票", record, 2)
+                    _buildTxt("补打小票", record, 2)
                   ],
                 )
               ],
@@ -113,24 +115,21 @@ class _ListPageState extends State<ListPage> {
           decoration: BoxDecoration(color: Colors.white),
           margin: EdgeInsets.only(left: 8, top: 8, right: 8),
           child: Padding(
-              padding:
-                  EdgeInsets.only(left: 20, top: 15, right: 20, bottom: 15),
-              child: itemView),
+              padding: EdgeInsets.only(left: 20, top: 15, right: 20, bottom: 15), child: itemView),
         ));
 
     return item;
   }
 
-  Widget buildTxt(String content, RecordList record, int type) {
+  Widget _buildTxt(String content, RecordList record, int type) {
     return GestureDetector(
-      onTap: () => handleClick(record, type),
+      onTap: () => _handleClick(record, type),
       child: DecoratedBox(
-        decoration: BoxDecoration(
-            color: Color(0x1C1890FF), borderRadius: BorderRadius.circular(10)),
+        decoration:
+            BoxDecoration(color: Color(0x1C1890FF), borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.only(left: 8, top: 2, right: 8, bottom: 2),
-          child: Text(content,
-              style: TextStyle(fontSize: 11, color: Color(0xFF1890FF))),
+          child: Text(content, style: TextStyle(fontSize: 11, color: Color(0xFF1890FF))),
         ),
       ),
     );
@@ -139,13 +138,11 @@ class _ListPageState extends State<ListPage> {
   /// 跳转到详情页
   _gotoRecordDetailPage(RecordList record) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => RecordDetailPage(record.workRecordId)));
+        context, MaterialPageRoute(builder: (context) => RecordDetailPage(record.workRecordId)));
   }
 
   /// 处理点击
-  handleClick(RecordList record, int type) {
+  _handleClick(RecordList record, int type) {
     if (1 == type) {
       _gotoRecordDetailPage(record);
       return;
@@ -155,7 +152,7 @@ class _ListPageState extends State<ListPage> {
   }
 
   /// 获取数据
-  getDataList() {
+  _getDataList() {
     List<RecordList> list = [];
     for (var i = 0; i < 3; i++) {
       RecordList value = RecordList();
@@ -166,7 +163,8 @@ class _ListPageState extends State<ListPage> {
     }
 
     setState(() {
-      recordList = list;
+      _recordList.clear();
+      _recordList.addAll(list);
     });
   }
 }

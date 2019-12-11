@@ -4,17 +4,20 @@ import 'package:gas_station/utils/DateUtil.dart';
 
 /// 交班记录详情页
 class RecordDetailPage extends StatelessWidget {
-  final num recordId;
+  final num _recordId;
 
-  RecordDetailPage(this.recordId);
+  RecordDetailPage(this._recordId);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: buildTitleView(context), body: RecordDetailWidget(recordId));
+    return Scaffold(
+      appBar: _buildTitleView(context),
+      body: _RecordDetailWidget(_recordId),
+    );
   }
 
   /// 构建标题栏
-  Widget buildTitleView(BuildContext context) {
+  Widget _buildTitleView(BuildContext context) {
     return AppBar(
       leading: BackButton(color: Color(0xFF808080)),
       title: Text("交班详情", style: TextStyle(fontSize: 18, color: Color(0xFF333333))),
@@ -30,33 +33,33 @@ class RecordDetailPage extends StatelessWidget {
   }
 }
 
-class RecordDetailWidget extends StatefulWidget {
-  final num recordId;
+class _RecordDetailWidget extends StatefulWidget {
+  final num _recordId;
 
-  RecordDetailWidget(this.recordId);
+  _RecordDetailWidget(this._recordId);
 
   @override
   _RecordDetailWidgetState createState() => _RecordDetailWidgetState();
 }
 
-class _RecordDetailWidgetState extends State<RecordDetailWidget> {
-  RecordDetail detail;
+class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
+  RecordDetail _detail;
 
   @override
   void initState() {
     super.initState();
 
-    getData();
+    _getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    var content = detail == null ? Center(child: CircularProgressIndicator()) : buildContent();
+    var content = _detail == null ? Center(child: CircularProgressIndicator()) : _buildContent();
 
     return content;
   }
 
-  Widget buildContent() {
+  Widget _buildContent() {
     var headView = Container(
       constraints: BoxConstraints.expand(height: 52),
       padding: EdgeInsets.only(left: 20, right: 20),
@@ -70,7 +73,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
           Positioned(
               right: 0,
               top: 0,
-              child: Text(getYmdHms(detail.startDate),
+              child: Text(getYmdHms(_detail.startDate),
                   style: TextStyle(color: Color(0xFF333333), fontSize: 13))),
           Positioned(
               left: 0,
@@ -79,7 +82,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
           Positioned(
               right: 0,
               bottom: 0,
-              child: Text(getYmdHms(detail.endDate),
+              child: Text(getYmdHms(_detail.endDate),
                   style: TextStyle(color: Color(0xFF333333), fontSize: 13)))
         ],
       ),
@@ -88,9 +91,9 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
     var priceView = Flex(
       direction: Axis.horizontal,
       children: <Widget>[
-        buildPriceView("订单金额", detail.orderAmount),
-        buildPriceView("优惠金额", detail.discountAmount),
-        buildPriceView("实收金额", detail.realPayAmount)
+        _buildPriceView("订单金额", _detail.orderAmount),
+        _buildPriceView("优惠金额", _detail.discountAmount),
+        _buildPriceView("实收金额", _detail.realPayAmount)
       ],
     );
 
@@ -104,9 +107,9 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
                 color: Color(0xFFF4F4F4), height: 1, margin: EdgeInsets.only(top: 15, bottom: 15)),
             priceView,
             Container(color: Color(0xFFF4F4F4), height: 1, margin: EdgeInsets.only(top: 15)),
-            buildPriceListView("收银总额", detail.orderList),
-            buildPriceListView("会员卡消费总额", detail.mbrCardSpec),
-            buildPriceListView("油品消费统计", detail.proSkuCount)
+            _buildPriceListView("收银总额", _detail.orderList),
+            _buildPriceListView("会员卡消费总额", _detail.mbrCardSpec),
+            _buildPriceListView("油品消费统计", _detail.proSkuCount)
           ],
         ),
       ),
@@ -144,7 +147,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
     return content;
   }
 
-  Widget buildPriceView(String name, num amount) {
+  Widget _buildPriceView(String name, num amount) {
     return Expanded(
       flex: 1,
       child: Center(
@@ -159,7 +162,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
     );
   }
 
-  Widget buildPriceListView(String name, List<RecordItem> list) {
+  Widget _buildPriceListView(String name, List<RecordItem> list) {
     var label = Center(
       child: Padding(
           padding: EdgeInsets.only(bottom: 5),
@@ -172,7 +175,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
           )),
     );
 
-    var content = list.map((item) => get3Txt(item));
+    var content = list.map((item) => _get3Txt(item));
 
     List<Widget> ll = [];
     ll.add(label);
@@ -190,7 +193,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
         s1 = "油品/升";
     }
 
-    ll.add(get3Txt2(s1, "笔数", "金额", true));
+    ll.add(_get3Txt2(s1, "笔数", "金额", true));
     ll.addAll(content);
 
     return Padding(
@@ -199,11 +202,11 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
     );
   }
 
-  Widget get3Txt(RecordItem item) {
-    return get3Txt2(item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
+  Widget _get3Txt(RecordItem item) {
+    return _get3Txt2(item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
   }
 
-  Widget get3Txt2(String s1, String s2, String s3, bool title) {
+  Widget _get3Txt2(String s1, String s2, String s3, bool title) {
     var color = title ? Color(0xFF808080) : Color(0xFF333333);
     return Padding(
       padding: EdgeInsets.only(top: 10),
@@ -232,7 +235,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
   }
 
   /// 获取交班详情
-  getData() {
+  _getData() {
     // TODO
 
     List<RecordItem> list = [];
@@ -258,7 +261,7 @@ class _RecordDetailWidgetState extends State<RecordDetailWidget> {
     info.userName = "张三";
 
     setState(() {
-      detail = info;
+      _detail = info;
     });
   }
 }
