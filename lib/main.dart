@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gas_station/pages/record/list/record_list_page.dart';
+import 'package:gas_station/pages/home/home_page.dart';
+import 'package:gas_station/res/styles.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,10 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: RecordListPage(),
+      theme: Styles.appTheme,
+      home: HomePage(),
     );
   }
 }

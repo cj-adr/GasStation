@@ -3,7 +3,7 @@ import 'package:gas_station/models/index.dart';
 import 'package:gas_station/pages/record/detail/record_detail_page.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
-import 'package:gas_station/utils/DateUtil.dart';
+import 'package:gas_station/utils/date_utils.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
 /// 交班记录列表页
@@ -81,7 +81,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
               margin: EdgeInsets.only(right: 10),
             ),
             Text(
-              "交班时间：${getYmdHms(record.endDate)}",
+              "交班时间：${DateUtils.getYmdHms(record.endDate)}",
               style: TextStyle(fontSize: Dimens.font_normal, color: Clrs.textBlack),
             )
           ],

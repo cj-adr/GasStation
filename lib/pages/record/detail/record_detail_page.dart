@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
-import 'package:gas_station/utils/DateUtil.dart';
+import 'package:gas_station/utils/date_utils.dart';
 
 /// 交班记录详情页
 class RecordDetailPage extends StatelessWidget {
@@ -80,7 +80,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               right: 0,
               top: 0,
               child: Text(
-                getYmdHms(_detail.startDate),
+                DateUtils.getYmdHms(_detail.startDate),
                 style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_small_big),
               )),
           Positioned(
@@ -94,7 +94,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               right: 0,
               bottom: 0,
               child: Text(
-                getYmdHms(_detail.endDate),
+                DateUtils.getYmdHms(_detail.endDate),
                 style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_small_big),
               ))
         ],
