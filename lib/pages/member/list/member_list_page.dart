@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gas_station/res/clrs.dart';
-import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
 import 'package:gas_station/utils/text_style_utils.dart';
@@ -11,9 +10,7 @@ class MemberListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomPadding: false,
-        appBar: AppBar(
-          title: Text('会员列表'),
-        ),
+        appBar: AppBar(title: Text('会员列表')),
         body: Column(
           children: <Widget>[
             Container(
@@ -27,17 +24,15 @@ class MemberListPage extends StatelessWidget {
                 ),
                 child: Row(
                   children: <Widget>[
-                    SizedBox(
-                      width: 20,
-                    ),
+                    SizedBox(width: 20),
                     ImageUtils.assetImage('member_list_search'),
                     Expanded(
-                        child: Padding(
-                      padding: EdgeInsets.only(
-                        left: 8,
-                        right: 8,
-                      ),
-                      child: TextField(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: 8,
+                          right: 8,
+                        ),
+                        child: TextField(
                           maxLength: 11,
                           keyboardType: TextInputType.number,
                           inputFormatters: [
@@ -48,8 +43,10 @@ class MemberListPage extends StatelessWidget {
                           decoration: InputDecoration(
                             counterText: '',
                             border: InputBorder.none,
-                          )),
-                    )),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -84,9 +81,7 @@ class _MemberListItemView extends StatelessWidget {
       height: 60,
       child: Row(
         children: <Widget>[
-          SizedBox(
-            width: 18,
-          ),
+          SizedBox(width: 18),
           Container(
             width: 36,
             height: 36,
@@ -96,9 +91,7 @@ class _MemberListItemView extends StatelessWidget {
                   'http://pic3.zhimg.com/50/v2-5b0251b83cd145e2d6231cefd9865413_hd.jpg'),
             ),
           ),
-          SizedBox(
-            width: 14,
-          ),
+          SizedBox(width: 14),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -111,20 +104,20 @@ class _MemberListItemView extends StatelessWidget {
                       maxLines: 1,
                       style: TextStyles.black_14,
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
+                    SizedBox(width: 10),
                     Container(
                       width: 1,
                       height: 10,
                       color: Clrs.divide,
                     ),
-                    SizedBox(
-                      width: 12,
-                    ),
+                    SizedBox(width: 12),
                     Container(
-                      padding:
-                          EdgeInsets.only(left: 4, top: 3, right: 4, bottom: 3),
+                      padding: EdgeInsets.only(
+                        left: 4,
+                        top: 3,
+                        right: 4,
+                        bottom: 3,
+                      ),
                       child: Text(
                         '普通会员',
                         style: TextStyleUtils.merge(
@@ -140,9 +133,7 @@ class _MemberListItemView extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 4,
-                ),
+                SizedBox(height: 4),
                 Text(
                   '151 0349 0345',
                   style: TextStyles.blackSub_11,
@@ -150,13 +141,13 @@ class _MemberListItemView extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            width: 14,
+          SizedBox(width: 14),
+          ImageUtils.assetImage(
+            'common_more',
+            width: 5,
+            height: 10,
           ),
-          ImageUtils.assetImage('common_more', width: 5, height: 10),
-          SizedBox(
-            width: 18,
-          ),
+          SizedBox(width: 18),
         ],
       ),
     );
