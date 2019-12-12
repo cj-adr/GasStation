@@ -26,16 +26,11 @@ class OrderDetailState extends State {
 
 
   Widget _createList(){
-    return new Column(
+    return ListView(
       children: <Widget>[
-        _createHead(),
-        new ListView(
-          children: <Widget>[
-            _createBaseUi(),
-            _createMemberInfo(),
-            _createRefundList(),
-          ],
-        )
+        _createBaseUi(),
+        _createMemberInfo(),
+        _createRefundList(),
       ],
     );
   }
@@ -209,8 +204,4 @@ class OrderDetailState extends State {
     Navigator.pop(context);
   }
 
-
-  _createHead() {
-
-  }
 }
