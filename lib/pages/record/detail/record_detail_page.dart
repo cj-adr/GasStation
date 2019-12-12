@@ -22,11 +22,11 @@ class RecordDetailPage extends StatelessWidget {
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
       leading: BackButton(color: Clrs.textBlackSub2),
-      title: Text("交班详情", style: TextStyle(fontSize: Dimens.font_title, color: Clrs.textBlack)),
+      title: Text("交班详情", style: TextStyle(fontSize: Dimens.font_18, color: Clrs.textBlack)),
       centerTitle: true,
       actions: <Widget>[
         MaterialButton(
-          child: Text("交班记录", style: TextStyle(fontSize: Dimens.font_large, color: Clrs.textBlue)),
+          child: Text("交班记录", style: TextStyle(fontSize: Dimens.font_16, color: Clrs.textBlue)),
           onPressed: () => Navigator.maybePop(context),
         )
       ],
@@ -74,28 +74,28 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               top: 0,
               child: Text(
                 "上次交班时间",
-                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_13),
               )),
           Positioned(
               right: 0,
               top: 0,
               child: Text(
                 DateUtils.getYmdHms(_detail.startDate),
-                style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_13),
               )),
           Positioned(
               left: 0,
               bottom: 0,
               child: Text(
                 "本次交班时间",
-                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_13),
               )),
           Positioned(
               right: 0,
               bottom: 0,
               child: Text(
                 DateUtils.getYmdHms(_detail.endDate),
-                style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_13),
               ))
         ],
       ),
@@ -138,7 +138,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
           onPressed: () => Navigator.maybePop(context),
           color: Clrs.textBlue,
           hoverColor: Clrs.alphaColorPrimary,
-          child: Text("交班并退出", style: TextStyle(fontSize: Dimens.font_normal)),
+          child: Text("交班并退出", style: TextStyle(fontSize: Dimens.font_14)),
           textColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
         ),
@@ -169,9 +169,9 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
         child: Column(
           children: <Widget>[
             Text(name,
-                style: TextStyle(color: Clrs.textBlackLight, fontSize: Dimens.font_small_big)),
+                style: TextStyle(color: Clrs.textBlackLight, fontSize: Dimens.font_13)),
             Container(height: 6),
-            Text("￥$amount", style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_large))
+            Text("￥$amount", style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_16))
           ],
         ),
       ),
@@ -188,7 +188,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               padding: EdgeInsets.only(left: 8, top: 2, right: 8, bottom: 2),
               child: Text(
                 name,
-                style: TextStyle(color: Clrs.textBlue, fontSize: Dimens.font_small_big),
+                style: TextStyle(color: Clrs.textBlue, fontSize: Dimens.font_13),
               ),
             ),
           )),
@@ -234,19 +234,19 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: Text(s1, style: TextStyle(color: color, fontSize: Dimens.font_small_big)),
+            child: Text(s1, style: TextStyle(color: color, fontSize: Dimens.font_13)),
           ),
           Expanded(
             flex: 1,
             child: Center(
-              child: Text(s2, style: TextStyle(color: color, fontSize: Dimens.font_small_big)),
+              child: Text(s2, style: TextStyle(color: color, fontSize: Dimens.font_13)),
             ),
           ),
           Expanded(
               flex: 1,
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(s3, style: TextStyle(color: color, fontSize: Dimens.font_small_big)),
+                child: Text(s3, style: TextStyle(color: color, fontSize: Dimens.font_13)),
               ))
         ],
       ),

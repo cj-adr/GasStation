@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
 class MemberListPage extends StatelessWidget {
@@ -42,11 +43,7 @@ class MemberListPage extends StatelessWidget {
                             WhitelistingTextInputFormatter.digitsOnly
                           ],
                           cursorColor: Clrs.textBlack,
-                          style: TextStyle(
-                            fontSize: Dimens.font_large,
-                            color: Clrs.textBlack,
-                          ),
-                          //todo:contentPadding
+                          style: TextStyles.black_16,
                           decoration: InputDecoration(
                             counterText: '',
                             border: InputBorder.none,
@@ -63,8 +60,7 @@ class MemberListPage extends StatelessWidget {
               color: Color(0xffE7F3FF),
               child: Text(
                 '共100条会员数据',
-                style: TextStyle(
-                    color: Clrs.colorPrimary, fontSize: Dimens.font_small),
+                style: TextStyles.blue_12,
               ),
             ),
             Expanded(
@@ -112,10 +108,7 @@ class _MemberListItemView extends StatelessWidget {
                     Text(
                       '张三',
                       maxLines: 1,
-                      style: TextStyle(
-                        color: Clrs.textBlack,
-                        fontSize: Dimens.font_normal,
-                      ),
+                      style: TextStyles.black_14,
                     ),
                     SizedBox(
                       width: 10,
@@ -154,7 +147,7 @@ class _MemberListItemView extends StatelessWidget {
                 ),
                 Text(
                   '151 0349 0345',
-                  style: TextStyle(color: Clrs.textBlackSub, fontSize: 11),
+                  style: TextStyles.blackSub_11,
                 ),
               ],
             ),

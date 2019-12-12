@@ -22,7 +22,7 @@ class RecordListPage extends StatelessWidget {
       leading: BackButton(color: Clrs.textBlackSub2),
       title: Text("交班记录",
           style: TextStyle(
-            fontSize: Dimens.font_title,
+            fontSize: Dimens.font_18,
             color: Clrs.textBlack,
           )),
       centerTitle: true,
@@ -82,7 +82,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
             ),
             Text(
               "交班时间：${DateUtils.getYmdHms(record.endDate)}",
-              style: TextStyle(fontSize: Dimens.font_normal, color: Clrs.textBlack),
+              style: TextStyle(fontSize: Dimens.font_14, color: Clrs.textBlack),
             )
           ],
         ),
@@ -93,7 +93,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
               children: <Widget>[
                 Text(
                   "订单金额：￥${record.orderAmount}",
-                  style: TextStyle(fontSize: Dimens.font_small, color: Clrs.textBlackSub2),
+                  style: TextStyle(fontSize: Dimens.font_12, color: Clrs.textBlackSub2),
                 ),
                 Row(
                   children: <Widget>[
@@ -139,7 +139,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
           child: Text(
             content,
             style: TextStyle(
-              fontSize: Dimens.font_smallest,
+              fontSize: Dimens.font_11,
               color: Clrs.textBlue,
             ),
           ),

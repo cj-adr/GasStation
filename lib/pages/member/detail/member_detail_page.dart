@@ -49,7 +49,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                       child: Row(
                         children: <Widget>[
                           SizedBox(
-                            width: Dimens.distance_horizontal,
+                            width: Dimens.distance_horizontal_padding,
                           ),
                           ClipOval(
                             child: Image.network(
@@ -69,7 +69,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                 Text(
                                   '名字名字名字名字',
                                   style: TextStyle(
-                                      fontSize: Dimens.font_large,
+                                      fontSize: Dimens.font_16,
                                       color: Colors.white,
                                       height: 1.2),
                                 ),
@@ -81,7 +81,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                   child: Text(
                                     '15143595063',
                                     style: TextStyle(
-                                      fontSize: Dimens.font_small,
+                                      fontSize: Dimens.font_12,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -113,7 +113,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                     child: Text(
                                       '黄金会员',
                                       style: TextStyle(
-                                        fontSize: Dimens.font_small,
+                                        fontSize: Dimens.font_12,
                                         color: Clrs.textBlue,
                                       ),
                                     ),
@@ -137,8 +137,8 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                         color: Color(0xFFEFF7FF),
                       ),
                       margin: EdgeInsets.only(
-                        left: Dimens.distance_horizontal,
-                        right: Dimens.distance_horizontal,
+                        left: Dimens.distance_horizontal_padding,
+                        right: Dimens.distance_horizontal_padding,
                       ),
                       child: Row(
                         children: <Widget>[
@@ -149,7 +149,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                 TextSpan(
                                   text: '加油 ',
                                   style: TextStyle(
-                                      fontSize: Dimens.font_normal,
+                                      fontSize: Dimens.font_14,
                                       color: Clrs.textBlack),
                                 ),
                                 TextSpan(
@@ -160,7 +160,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                 TextSpan(
                                   text: ' 折',
                                   style: TextStyle(
-                                      fontSize: Dimens.font_normal,
+                                      fontSize: Dimens.font_14,
                                       color: Clrs.textBlack),
                                 ),
                               ]),
@@ -178,7 +178,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                   TextSpan(
                                     text: '积分 ',
                                     style: TextStyle(
-                                        fontSize: Dimens.font_normal,
+                                        fontSize: Dimens.font_14,
                                         color: Clrs.textBlack),
                                   ),
                                   TextSpan(
@@ -189,7 +189,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                   TextSpan(
                                     text: ' 倍',
                                     style: TextStyle(
-                                        fontSize: Dimens.font_normal,
+                                        fontSize: Dimens.font_14,
                                         color: Clrs.textBlack),
                                   ),
                                 ]),
@@ -222,8 +222,8 @@ class _MemberDetailPageState extends State<MemberDetailPage>
           ),
           Container(
             margin: EdgeInsets.only(
-              left: Dimens.distance_horizontal,
-              right: Dimens.distance_horizontal,
+              left: Dimens.distance_horizontal_padding,
+              right: Dimens.distance_horizontal_padding,
             ),
             height: 1,
             width: double.infinity,
