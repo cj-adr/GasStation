@@ -17,7 +17,10 @@ class _MemberDetailPageState extends State<MemberDetailPage>
   TabController _tabController;
 
   _MemberDetailPageState() {
-    _tabController = new TabController(vsync: this, length: 2);
+    _tabController = new TabController(
+      vsync: this,
+      length: 2,
+    );
   }
 
   @override
@@ -39,18 +42,12 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                 ),
                 Column(
                   children: <Widget>[
-                    SizedBox(
-                      height: statusHeight,
-                    ),
-                    SizedBox(
-                      height: 55,
-                    ),
+                    SizedBox(height: statusHeight),
+                    SizedBox(height: 55),
                     Expanded(
                       child: Row(
                         children: <Widget>[
-                          SizedBox(
-                            width: Dimens.distance_horizontal_padding,
-                          ),
+                          SizedBox(width: Dimens.distance_horizontal_padding),
                           ClipOval(
                             child: Image.network(
                               'http://pic3.zhimg.com/50/v2-5b0251b83cd145e2d6231cefd9865413_hd.jpg',
@@ -58,9 +55,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                               height: 52,
                             ),
                           ),
-                          SizedBox(
-                            width: 16,
-                          ),
+                          SizedBox(width: 16),
                           Container(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,9 +68,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                       color: Colors.white,
                                       height: 1.2),
                                 ),
-                                SizedBox(
-                                  height: 4,
-                                ),
+                                SizedBox(height: 4),
                                 Opacity(
                                   opacity: 0.7,
                                   child: Text(
@@ -88,13 +81,9 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                 ),
                               ],
                             ),
-                            constraints: BoxConstraints(
-                              maxWidth: 128,
-                            ),
+                            constraints: BoxConstraints(maxWidth: 128),
                           ),
-                          SizedBox(
-                            width: 16,
-                          ),
+                          SizedBox(width: 16),
                           Container(
                             width: 1,
                             height: 12,
@@ -108,8 +97,10 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                   left: 18,
                                   child: Container(
                                     height: 18,
-                                    padding:
-                                        EdgeInsets.only(left: 14, right: 8),
+                                    padding: EdgeInsets.only(
+                                      left: 14,
+                                      right: 8,
+                                    ),
                                     child: Text(
                                       '黄金会员',
                                       style: TextStyle(
@@ -118,9 +109,10 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                       ),
                                     ),
                                     decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(2))),
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(2)),
+                                    ),
                                   ),
                                 ),
                                 ImageUtils.assetImage('member_level'),
@@ -172,9 +164,10 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                             color: Clrs.divide,
                           ),
                           _getPrivilegeView(
-                              ImageUtils.assetImage('member_score_rate'),
-                              RichText(
-                                text: TextSpan(children: <InlineSpan>[
+                            ImageUtils.assetImage('member_score_rate'),
+                            RichText(
+                              text: TextSpan(
+                                children: <InlineSpan>[
                                   TextSpan(
                                     text: '积分 ',
                                     style: TextStyle(
@@ -192,8 +185,10 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                                         fontSize: Dimens.font_14,
                                         color: Clrs.textBlack),
                                   ),
-                                ]),
-                              )),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     )
@@ -210,12 +205,8 @@ class _MemberDetailPageState extends State<MemberDetailPage>
               unselectedLabelColor: Clrs.textBlackSub,
               indicatorColor: Clrs.colorPrimary,
               tabs: [
-                Tab(
-                  text: '账户',
-                ),
-                Tab(
-                  text: '资料',
-                ),
+                Tab(text: '账户'),
+                Tab(text: '资料'),
               ],
               controller: _tabController,
             ),
@@ -232,7 +223,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
           Expanded(
             child: TabBarView(controller: _tabController, children: [
               _getPage0(),
-              _getPage0(),
+              _getPage1(),
             ]),
           )
         ],
@@ -246,9 +237,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         icon,
-        SizedBox(
-          width: 12,
-        ),
+        SizedBox(width: 12),
         text,
       ],
     ));
