@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Clrs {
   //全局颜色
   static const Color colorPrimary = Color(0xff1890FF);
+  static const Color colorPrimaryLight = Color(0xffEFF7FF);
   static const Color colorAccent = Color(0xffcccccc);
   static const Color backgroundColor = Color(0xffF4F4F4);
   static const Color appBarLightBg = Color(0xFFFAFAFA);

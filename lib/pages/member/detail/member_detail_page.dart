@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
+import 'package:gas_station/utils/text_style_utils.dart';
 
 class MemberDetailPage extends StatefulWidget {
   @override
@@ -246,17 +248,191 @@ class _MemberDetailPageState extends State<MemberDetailPage>
   Widget _getPage0() {
     return Column(
       children: <Widget>[
-        Text('1'),
-        Text('2'),
-        RaisedButton(
-          child: Text('充值'),
-          onPressed: () {},
-        )
+        SizedBox(height: 12),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: Dimens.distance_horizontal_padding),
+          child: Row(
+            children: <Widget>[
+              _getPage0ItemView('member_petrol_balance', '汽油卡', '¥40.00'),
+              SizedBox(width: 20),
+              _getPage0ItemView('member_diesel_balance', '柴油卡', '¥40.00'),
+            ],
+          ),
+        ),
+        SizedBox(height: 20),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: Dimens.distance_horizontal_padding),
+          child: Row(
+            children: <Widget>[
+              _getPage0ItemView('member_score_balance', '可用积分', '¥40.00'),
+              SizedBox(width: 20),
+              _getPage0ItemView('member_coupon_balance', '卡包', '¥40.00'),
+            ],
+          ),
+        ),
+        SizedBox(height: 20),
+        Container(
+          margin: EdgeInsets.symmetric(
+              horizontal: Dimens.distance_horizontal_padding),
+          child: MaterialButton(
+            child: Text('充值'),
+            color: Clrs.colorPrimary,
+            minWidth: double.infinity,
+            highlightElevation: 0,
+            textColor: Colors.white,
+            elevation: 0,
+            onPressed: () {},
+          ),
+        ),
       ],
     );
   }
 
+  Widget _getPage0ItemView(String imageName, String title, String content) {
+    return Expanded(
+        child: Container(
+      width: double.infinity,
+      height: 56,
+      decoration: BoxDecoration(
+          color: Clrs.colorPrimaryLight,
+          borderRadius: BorderRadius.all(Radius.circular(4))),
+      child: Row(
+        children: <Widget>[
+          SizedBox(width: 13),
+          ImageUtils.assetImage(imageName),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  title,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyles.blackSub_12,
+                ),
+                SizedBox(height: 4),
+                Text(
+                  content,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyles.black_14,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(width: 13)
+        ],
+      ),
+    ));
+  }
+
   Widget _getPage1() {
-    return Text('2');
+    return CustomScrollView(slivers: <Widget>[
+      SliverList(
+          delegate: SliverChildListDelegate(
+        <Widget>[
+          _getPage1ItemView(
+            ImageUtils.assetImage('member_name'),
+            Text(
+              '昵称',
+              style: TextStyles.blackSub_14,
+            ),
+            Text('昵称', style: TextStyles.black_14),
+          ),
+          _getPage1DivideView(),
+          _getPage1ItemView(
+            ImageUtils.assetImage('member_sex'),
+            Text(
+              '性别',
+              style: TextStyles.blackSub_14,
+            ),
+            Text('男', style: TextStyles.black_14),
+          ),
+          _getPage1DivideView(),
+          _getPage1ItemView(
+            ImageUtils.assetImage('member_birthday'),
+            Text(
+              '生日',
+              style: TextStyles.blackSub_14,
+            ),
+            Text('1990-08-19', style: TextStyles.black_14),
+          ),
+          _getPage1DivideView(),
+          _getPage1ItemView(
+            ImageUtils.assetImage('member_password'),
+            Text(
+              '免密支付',
+              style: TextStyles.blackSub_14,
+            ),
+            Switch(
+              value: false,
+              onChanged: null,
+            ),
+          ),
+          _getPage1DivideView(),
+          _getPage1ItemView(
+            ImageUtils.assetImage('member_lock_level'),
+            Text(
+              '锁定等级',
+              style: TextStyles.blackSub_14,
+            ),
+            Switch(value: false, onChanged: null),
+          ),
+          Container(
+            height: 40,
+            margin: EdgeInsets.symmetric(
+                horizontal: Dimens.distance_horizontal_padding),
+            child: OutlineButton(
+              child: Container(
+                color: Colors.white,
+                width: double.infinity,
+                height: double.infinity,
+                alignment: Alignment.center,
+                child: Text(
+                  '编辑',
+                  style: TextStyleUtils.merge(TextStyles.blue_14),
+                ),
+              ),
+              onPressed: () {},
+              highlightElevation: 0,
+              highlightColor: Colors.white,
+              highlightedBorderColor: Clrs.textBlueDark,
+              textColor: Clrs.textBlue,
+              borderSide: BorderSide(color: Clrs.textBlue, width: 2),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(4))),
+            ),
+          ),
+          SizedBox(height: 12)
+        ],
+      ))
+    ]);
+  }
+
+  Widget _getPage1ItemView(Widget icon, Widget title, Widget content) {
+    return SizedBox(
+        height: 56,
+        child: Row(
+          children: <Widget>[
+            SizedBox(width: Dimens.distance_horizontal_padding),
+            icon,
+            SizedBox(width: 8),
+            Expanded(
+              child: title,
+            ),
+            content,
+            SizedBox(width: Dimens.distance_horizontal_padding),
+          ],
+        ));
+  }
+
+  Widget _getPage1DivideView() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 18),
+      width: double.infinity,
+      height: 1,
+      color: Clrs.divide,
+    );
   }
 }

@@ -39,6 +39,10 @@ class TextStyles {
     fontSize: Dimens.font_13,
     color: Clrs.textBlackSub,
   );
+  static const TextStyle blackSub_14 = const TextStyle(
+    fontSize: Dimens.font_14,
+    color: Clrs.textBlackSub,
+  );
 
   static const TextStyle blackLight_13 = const TextStyle(
     fontSize: Dimens.font_13,
@@ -67,6 +71,11 @@ class TextStyles {
 
   static const TextStyle blue_13 = const TextStyle(
     fontSize: Dimens.font_13,
+    color: Clrs.textBlue,
+  );
+
+  static const TextStyle blue_14 = const TextStyle(
+    fontSize: Dimens.font_14,
     color: Clrs.textBlue,
   );
 
