@@ -3,6 +3,7 @@ import 'package:gas_station/models/index.dart';
 import 'package:gas_station/pages/record/detail/record_detail_page.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/date_utils.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
@@ -20,11 +21,7 @@ class RecordListPage extends StatelessWidget {
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
       leading: BackButton(color: Clrs.textBlackSub2),
-      title: Text("交班记录",
-          style: TextStyle(
-            fontSize: Dimens.font_18,
-            color: Clrs.textBlack,
-          )),
+      title: Text("交班记录", style: TextStyles.black_18),
       centerTitle: true,
       actions: <Widget>[
         IconButton(
@@ -62,7 +59,8 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
             itemBuilder: _buildItem,
           );
 
-    return Container(decoration: BoxDecoration(color: Clrs.backgroundColor), child: content);
+    return Container(
+        decoration: BoxDecoration(color: Clrs.backgroundColor), child: content);
   }
 
   Widget _buildItem(BuildContext context, int index) {
@@ -82,7 +80,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
             ),
             Text(
               "交班时间：${DateUtils.getYmdHms(record.endDate)}",
-              style: TextStyle(fontSize: Dimens.font_14, color: Clrs.textBlack),
+              style: TextStyles.black_14,
             )
           ],
         ),
@@ -93,7 +91,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
               children: <Widget>[
                 Text(
                   "订单金额：￥${record.orderAmount}",
-                  style: TextStyle(fontSize: Dimens.font_12, color: Clrs.textBlackSub2),
+                  style: TextStyles.blackSub_12,
                 ),
                 Row(
                   children: <Widget>[
@@ -138,10 +136,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
           padding: EdgeInsets.only(left: 8, top: 2, right: 8, bottom: 2),
           child: Text(
             content,
-            style: TextStyle(
-              fontSize: Dimens.font_11,
-              color: Clrs.textBlue,
-            ),
+            style: TextStyles.blue_11,
           ),
         ),
       ),
@@ -151,7 +146,9 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
   /// 跳转到详情页
   _gotoRecordDetailPage(RecordList record) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => RecordDetailPage(record.workRecordId)));
+        context,
+        MaterialPageRoute(
+            builder: (context) => RecordDetailPage(record.workRecordId)));
   }
 
   /// 处理点击

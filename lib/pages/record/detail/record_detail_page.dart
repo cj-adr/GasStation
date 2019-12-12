@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/date_utils.dart';
 
 /// 交班记录详情页
@@ -22,11 +23,17 @@ class RecordDetailPage extends StatelessWidget {
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
       leading: BackButton(color: Clrs.textBlackSub2),
-      title: Text("交班详情", style: TextStyle(fontSize: Dimens.font_18, color: Clrs.textBlack)),
+      title: Text(
+        "交班详情",
+        style: TextStyles.black_18,
+      ),
       centerTitle: true,
       actions: <Widget>[
         MaterialButton(
-          child: Text("交班记录", style: TextStyle(fontSize: Dimens.font_16, color: Clrs.textBlue)),
+          child: Text(
+            "交班记录",
+            style: TextStyles.blue_16,
+          ),
           onPressed: () => Navigator.maybePop(context),
         )
       ],
@@ -57,7 +64,9 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var content = _detail == null ? Center(child: CircularProgressIndicator()) : _buildContent();
+    var content = _detail == null
+        ? Center(child: CircularProgressIndicator())
+        : _buildContent();
 
     return content;
   }
@@ -74,28 +83,28 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               top: 0,
               child: Text(
                 "上次交班时间",
-                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_13),
+                style: TextStyles.blackSub_13,
               )),
           Positioned(
               right: 0,
               top: 0,
               child: Text(
                 DateUtils.getYmdHms(_detail.startDate),
-                style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_13),
+                style: TextStyles.black_13,
               )),
           Positioned(
               left: 0,
               bottom: 0,
               child: Text(
                 "本次交班时间",
-                style: TextStyle(color: Clrs.textBlackSub2, fontSize: Dimens.font_13),
+                style: TextStyles.blackSub_13,
               )),
           Positioned(
               right: 0,
               bottom: 0,
               child: Text(
                 DateUtils.getYmdHms(_detail.endDate),
-                style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_13),
+                style: TextStyles.black_13,
               ))
         ],
       ),
@@ -121,7 +130,10 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
                 height: 1,
                 margin: EdgeInsets.only(top: 15, bottom: 15)),
             priceView,
-            Container(color: Clrs.backgroundColor, height: 1, margin: EdgeInsets.only(top: 15)),
+            Container(
+                color: Clrs.backgroundColor,
+                height: 1,
+                margin: EdgeInsets.only(top: 15)),
             _buildPriceListView("收银总额", _detail.orderList),
             _buildPriceListView("会员卡消费总额", _detail.mbrCardSpec),
             _buildPriceListView("油品消费统计", _detail.proSkuCount)
@@ -138,7 +150,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
           onPressed: () => Navigator.maybePop(context),
           color: Clrs.textBlue,
           hoverColor: Clrs.alphaColorPrimary,
-          child: Text("交班并退出", style: TextStyle(fontSize: Dimens.font_14)),
+          child: Text("交班并退出", style: TextStyles.white_14),
           textColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
         ),
@@ -168,10 +180,9 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
       child: Center(
         child: Column(
           children: <Widget>[
-            Text(name,
-                style: TextStyle(color: Clrs.textBlackLight, fontSize: Dimens.font_13)),
+            Text(name, style: TextStyles.blackLight_13),
             Container(height: 6),
-            Text("￥$amount", style: TextStyle(color: Clrs.textBlack, fontSize: Dimens.font_16))
+            Text("￥$amount", style: TextStyles.black_16)
           ],
         ),
       ),
@@ -188,7 +199,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
               padding: EdgeInsets.only(left: 8, top: 2, right: 8, bottom: 2),
               child: Text(
                 name,
-                style: TextStyle(color: Clrs.textBlue, fontSize: Dimens.font_13),
+                style: TextStyles.blue_13,
               ),
             ),
           )),
@@ -222,11 +233,12 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
   }
 
   Widget _get3Txt(RecordItem item) {
-    return _get3Txt2(item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
+    return _get3Txt2(
+        item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
   }
 
   Widget _get3Txt2(String s1, String s2, String s3, bool title) {
-    var color = title ? Clrs.textBlackSub2 : Clrs.textBlack;
+    var style = title ? TextStyles.blackSub_13 : TextStyles.black_13;
     return Padding(
       padding: EdgeInsets.only(top: 10),
       child: Flex(
@@ -234,19 +246,19 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
         children: <Widget>[
           Expanded(
             flex: 1,
-            child: Text(s1, style: TextStyle(color: color, fontSize: Dimens.font_13)),
+            child: Text(s1, style: style),
           ),
           Expanded(
             flex: 1,
             child: Center(
-              child: Text(s2, style: TextStyle(color: color, fontSize: Dimens.font_13)),
+              child: Text(s2, style: style),
             ),
           ),
           Expanded(
               flex: 1,
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Text(s3, style: TextStyle(color: color, fontSize: Dimens.font_13)),
+                child: Text(s3, style: style),
               ))
         ],
       ),
