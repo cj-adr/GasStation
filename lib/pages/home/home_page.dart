@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/pages/member/list/member_list_page.dart';
 import 'package:gas_station/res/clrs.dart';
+import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,7 +26,8 @@ class _HomePageState extends State<HomePage> {
     'home_order_unselected',
     'home_mine_unselected',
   ]);
-  final _pageList = List.of([Text('收款'), MemberListPage(), Text('订单'), Text('我的')]);
+  final _pageList =
+      List.of([Text('收款'), MemberListPage(), Text('订单'), Text('我的')]);
 
   var _index = 0;
 
@@ -55,9 +57,9 @@ class _HomePageState extends State<HomePage> {
       width: double.infinity,
       height: 54,
       child: BottomNavigationBar(
-        selectedFontSize: 11,
+        selectedFontSize: Dimens.font_11,
         iconSize: 20,
-        unselectedFontSize: 11,
+        unselectedFontSize: Dimens.font_11,
         backgroundColor: Colors.white,
         fixedColor: Clrs.colorPrimary,
         unselectedItemColor: Clrs.textBlackLight,
