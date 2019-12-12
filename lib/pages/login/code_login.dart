@@ -48,10 +48,6 @@ class _CodeLoginState extends State<CodeLogin> {
                   keyboardType: TextInputType.number,
                 ),
               ),
-              new Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[Text('元素一'), Text('元素二')],
-              )
             ],
           ),
         )));
