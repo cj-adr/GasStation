@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gas_station/pages/order/order_detail.dart';
 import 'package:gas_station/pages/order/order_list_bean.dart';
 
 class OrderList extends StatefulWidget{
@@ -15,6 +16,11 @@ class OrderListState extends State{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
+      appBar: new AppBar(
+        centerTitle: true,
+        leading: new IconButton(icon: new Icon(Icons.keyboard_backspace), onPressed: _back),
+        title: new Text('订单列表'),
+      ),
       body: _buildOrder(),);
   }
 
@@ -75,7 +81,7 @@ class OrderListState extends State{
 
             )),),
       ],),),
-      onTap: _jump(),
+      onTap: _jump,
       
     );
   }
@@ -112,8 +118,15 @@ class OrderListState extends State{
 
   //跳转到详情
   _jump() {
-
+    print('点击条目');
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return new OrderDetail();
+    }));
   }
 
+
+  void _back() {
+    Navigator.pop(context);
+  }
 }
 
