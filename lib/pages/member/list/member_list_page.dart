@@ -4,6 +4,7 @@ import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
+import 'package:gas_station/utils/text_style_utils.dart';
 
 class MemberListPage extends StatelessWidget {
   @override
@@ -127,12 +128,15 @@ class _MemberListItemView extends StatelessWidget {
                           EdgeInsets.only(left: 4, top: 3, right: 4, bottom: 3),
                       child: Text(
                         '普通会员',
-                        style: TextStyle(
-                          fontSize: 10,
+                        style: TextStyleUtils.merge(
+                          TextStyles.white_10,
                           height: 1,
-                          color: Colors.white,
-                          textBaseline: TextBaseline.alphabetic,
                         ),
+//                        TextStyle(
+//                          fontSize: 10,
+//                          height: 1,
+//                          color: Colors.white,
+//                        ),
                       ),
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,

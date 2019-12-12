@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/res/dimens.dart';
+import 'package:gas_station/utils/text_style_utils.dart';
 
 import 'clrs.dart';
 
@@ -42,6 +43,11 @@ class TextStyles {
   static const TextStyle blackLight_13 = const TextStyle(
     fontSize: Dimens.font_13,
     color: Clrs.textBlackLight,
+  );
+
+  static const TextStyle white_10 = const TextStyle(
+    fontSize: Dimens.font_10,
+    color: Colors.white,
   );
 
   static const TextStyle white_14 = const TextStyle(

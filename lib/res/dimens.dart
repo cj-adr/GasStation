@@ -1,4 +1,5 @@
 class Dimens {
+  static const double font_10 = 10;
   static const double font_11 = 11;
   static const double font_12 = 12;
   static const double font_13 = 13;
