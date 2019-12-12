@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/res/clrs.dart';
-import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/date_utils.dart';
 
@@ -53,7 +52,7 @@ class _RecordDetailWidget extends StatefulWidget {
 }
 
 class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
-  RecordDetail _detail;
+  RecordDetailEntity _detail;
 
   @override
   void initState() {
@@ -64,9 +63,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var content = _detail == null
-        ? Center(child: CircularProgressIndicator())
-        : _buildContent();
+    var content = _detail == null ? Center(child: CircularProgressIndicator()) : _buildContent();
 
     return content;
   }
@@ -130,10 +127,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
                 height: 1,
                 margin: EdgeInsets.only(top: 15, bottom: 15)),
             priceView,
-            Container(
-                color: Clrs.backgroundColor,
-                height: 1,
-                margin: EdgeInsets.only(top: 15)),
+            Container(color: Clrs.backgroundColor, height: 1, margin: EdgeInsets.only(top: 15)),
             _buildPriceListView("收银总额", _detail.orderList),
             _buildPriceListView("会员卡消费总额", _detail.mbrCardSpec),
             _buildPriceListView("油品消费统计", _detail.proSkuCount)
@@ -189,7 +183,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
     );
   }
 
-  Widget _buildPriceListView(String name, List<RecordItem> list) {
+  Widget _buildPriceListView(String name, List<RecordItemEntity> list) {
     var label = Center(
       child: Padding(
           padding: EdgeInsets.only(bottom: 5),
@@ -232,9 +226,8 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
     );
   }
 
-  Widget _get3Txt(RecordItem item) {
-    return _get3Txt2(
-        item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
+  Widget _get3Txt(RecordItemEntity item) {
+    return _get3Txt2(item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
   }
 
   Widget _get3Txt2(String s1, String s2, String s3, bool title) {
@@ -269,9 +262,9 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
   _getData() {
     // TODO
 
-    List<RecordItem> list = [];
+    List<RecordItemEntity> list = [];
     for (var i = 0; i < 5; i++) {
-      var item = RecordItem();
+      var item = RecordItemEntity();
       item.name = "ABC" + i.toString();
       item.quantity = 10;
       item.totalAmount = 10;
@@ -280,7 +273,7 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
       list.add(item);
     }
 
-    var info = RecordDetail();
+    var info = RecordDetailEntity();
     info.discountAmount = 8.0;
     info.endDate = 1543459658000;
     info.mbrCardSpec = list;

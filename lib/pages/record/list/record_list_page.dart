@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/pages/record/detail/record_detail_page.dart';
 import 'package:gas_station/res/clrs.dart';
-import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/date_utils.dart';
 import 'package:gas_station/utils/image_utils.dart';
@@ -41,7 +40,7 @@ class _RecordListWidget extends StatefulWidget {
 }
 
 class _RecordListWidgetState extends State<_RecordListWidget> {
-  final List<RecordList> _recordList = [];
+  final List<RecordListEntity> _recordList = [];
 
   @override
   void initState() {
@@ -59,12 +58,11 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
             itemBuilder: _buildItem,
           );
 
-    return Container(
-        decoration: BoxDecoration(color: Clrs.backgroundColor), child: content);
+    return Container(decoration: BoxDecoration(color: Clrs.backgroundColor), child: content);
   }
 
   Widget _buildItem(BuildContext context, int index) {
-    final RecordList record = _recordList[index];
+    final RecordListEntity record = _recordList[index];
 
     var itemView = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +122,7 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
     return item;
   }
 
-  Widget _buildTxt(String content, RecordList record, int type) {
+  Widget _buildTxt(String content, RecordListEntity record, int type) {
     return GestureDetector(
       onTap: () => _handleClick(record, type),
       child: DecoratedBox(
@@ -144,15 +142,13 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
   }
 
   /// 跳转到详情页
-  _gotoRecordDetailPage(RecordList record) {
+  _gotoRecordDetailPage(RecordListEntity record) {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => RecordDetailPage(record.workRecordId)));
+        context, MaterialPageRoute(builder: (context) => RecordDetailPage(record.workRecordId)));
   }
 
   /// 处理点击
-  _handleClick(RecordList record, int type) {
+  _handleClick(RecordListEntity record, int type) {
     if (1 == type) {
       _gotoRecordDetailPage(record);
       return;
@@ -163,9 +159,9 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
 
   /// 获取数据
   _getDataList() {
-    List<RecordList> list = [];
+    List<RecordListEntity> list = [];
     for (var i = 0; i < 3; i++) {
-      RecordList value = RecordList();
+      RecordListEntity value = RecordListEntity();
       value.endDate = 1543459658000;
       value.workRecordId = i + 1;
       value.orderAmount = 10.0 + i;
