@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/pages/login/code_login.dart';
+import 'package:gas_station/pages/login/psd_login.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: PsdLogin(),
     );
   }
 }
@@ -92,16 +94,12 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have click the button this many times:',
+              'You have pushed the button this many times:',
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-            Text(
-              'i am studying flutter',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            )
           ],
         ),
       ),
