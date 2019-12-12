@@ -114,11 +114,10 @@ class _MemberListItemView extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text(
-                      '|',
-                      style: TextStyle(
-                        color: Clrs.textBlackLight,
-                      ),
+                    Container(
+                      width: 1,
+                      height: 10,
+                      color: Clrs.divide,
                     ),
                     SizedBox(
                       width: 12,
@@ -132,11 +131,6 @@ class _MemberListItemView extends StatelessWidget {
                           TextStyles.white_10,
                           height: 1,
                         ),
-//                        TextStyle(
-//                          fontSize: 10,
-//                          height: 1,
-//                          color: Colors.white,
-//                        ),
                       ),
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,

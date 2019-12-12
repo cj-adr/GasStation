@@ -15,8 +15,6 @@ class Clrs {
 
   static const Color textBlackSub = Color(0xff888888);
   static const Color textBlackLight = Color(0xffcccccc);
-
-  static const Color textBlackSub2 = Color(0xFF808080);
   
   static const Color appBarLightBg = Color(0xFFFAFAFA);
   static const Color divide2 = Color(0xFF979797);

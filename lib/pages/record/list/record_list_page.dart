@@ -20,7 +20,7 @@ class RecordListPage extends StatelessWidget {
   /// 构建标题栏
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
-      leading: BackButton(color: Clrs.textBlackSub2),
+      leading: BackButton(color: Clrs.textBlackSub),
       title: Text("交班记录", style: TextStyles.black_18),
       centerTitle: true,
       actions: <Widget>[

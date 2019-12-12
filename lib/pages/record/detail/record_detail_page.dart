@@ -22,7 +22,7 @@ class RecordDetailPage extends StatelessWidget {
   /// 构建标题栏
   Widget _buildTitleView(BuildContext context) {
     return AppBar(
-      leading: BackButton(color: Clrs.textBlackSub2),
+      leading: BackButton(color: Clrs.textBlackSub),
       title: Text(
         "交班详情",
         style: TextStyles.black_18,
