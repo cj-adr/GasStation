@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/pages/member/list/member_list_page.dart';
+import 'package:gas_station/pages/order/list/order_list_page.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/utils/image_utils.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     'home_mine_unselected',
   ]);
   final _pageList =
-      List.of([Text('收款'), MemberListPage(), Text('订单'), Text('我的')]);
+      List.of([Text('收款'), MemberListPage(), OrderListPage(), Text('我的')]);
 
   var _index = 0;
 

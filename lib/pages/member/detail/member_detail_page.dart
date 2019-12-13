@@ -391,7 +391,7 @@ class _MemberDetailPageState extends State<MemberDetailPage>
                 alignment: Alignment.center,
                 child: Text(
                   '编辑',
-                  style: TextStyleUtils.merge(TextStyles.blue_14),
+                  style: TextStyles.blue_14,
                 ),
               ),
               onPressed: () {},
