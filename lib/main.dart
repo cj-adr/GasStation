@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gas_station/pages/member/detail/member_detail_page.dart';
+import 'package:gas_station/pages/home/home_page.dart';
 import 'package:gas_station/res/themes.dart';
+import 'package:gas_station/router/route_manager.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: Themes.appTheme,
-      home: MemberDetailPage(),
+      onGenerateRoute: RouteManager.buildRouteFactory(),
+      home: HomePage(),
     );
   }
 }
