@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gas_station/pages/member/detail/member_detail_page.dart';
 import 'package:gas_station/res/themes.dart';
 
 void main() {
