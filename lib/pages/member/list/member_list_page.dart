@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gas_station/models/test_entity.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';

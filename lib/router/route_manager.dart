@@ -6,7 +6,7 @@ import 'package:gas_station/pages/record/list/record_list_page.dart';
 import 'package:gas_station/router/route_config.dart';
 
 //  1.无参 Navigator.pushNamed(context, '/record/list')
-//  2.有参 Navigator.pushNamed(context, '/member/detail', arguments: {'test': entity});
+//  2.有参 Navigator.pushNamed(context, '/member/detail', arguments: {'id': 1});
 //  3.返回 Navigator.pop(context,T data)
 class RouteManager {
   static RouteFactory buildRouteFactory() {
