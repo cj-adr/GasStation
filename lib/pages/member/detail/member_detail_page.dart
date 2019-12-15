@@ -1,15 +1,20 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gas_station/models/test_entity.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
-import 'package:gas_station/utils/text_style_utils.dart';
 
 class MemberDetailPage extends StatefulWidget {
+  final TestEntity id;
+
+  MemberDetailPage(this.id);
+
   @override
   State<StatefulWidget> createState() {
+    debugPrint("id:${id.throwable.message}");
     return _MemberDetailPageState();
   }
 }
