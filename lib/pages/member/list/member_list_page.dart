@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:gas_station/models/test_entity.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/text_styles.dart';
-import 'package:gas_station/router/router_manager.dart';
-import 'package:gas_station/router/router_params.dart';
 import 'package:gas_station/utils/image_utils.dart';
 import 'package:gas_station/utils/text_style_utils.dart';
 
@@ -163,9 +161,6 @@ class _MemberListItemView extends StatelessWidget {
   }
 
   void _goMemberDetail(BuildContext context) {
-    RouterManager.push(
-        context,
-        RouterParams('/member/detail')
-            .put('id', TestEntity(throwable: TestThrowable(message: '我'))));
+    Navigator.pushNamed(context, '/member/detail', arguments: {'id': 1});
   }
 }

@@ -8,13 +8,13 @@ import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
 class MemberDetailPage extends StatefulWidget {
-  final TestEntity id;
+  final int id;
 
   MemberDetailPage(this.id);
 
   @override
   State<StatefulWidget> createState() {
-    debugPrint("id:${id.throwable.message}");
+    debugPrint("id:${id}");
     return _MemberDetailPageState();
   }
 }
