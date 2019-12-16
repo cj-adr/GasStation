@@ -21,6 +21,7 @@ class ImageUtils {
     double width = 0,
     double height = 0,
   }) {
+    if(name==null) return null;
     if (width != 0 && height != 0) {
       return Image.asset(
         'assets/images/' + name + _getSuffixName(type),
