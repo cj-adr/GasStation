@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class RouteConfig {
+class RouteItem {
   final String path;
   final WidgetBuilder widgetBuilder;
 
-  RouteConfig(this.path, this.widgetBuilder);
+  RouteItem(this.path, this.widgetBuilder);
 }
 
 typedef Widget WidgetBuilder(Map<String, Object> parameters);
