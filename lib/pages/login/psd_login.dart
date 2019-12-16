@@ -16,18 +16,15 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ( GestureDetector(
-        onTap: () {
-        },
-        child:  ListView(
+      body: (GestureDetector(
+        onTap: () {},
+        child: ListView(
           children: <Widget>[
-             SizedBox(height: 50),
+            SizedBox(height: 50),
             _topLogo(),
             _inputPhoneAndPsd(),
             _sureButton(),
-             SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             _bottomItem(),
           ],
         ),
@@ -46,10 +43,10 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
   Widget _inputPhoneAndPsd() {
     return new Container(
         margin: EdgeInsets.fromLTRB(40, 50, 40, 35),
-        child:  Column(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-             TextFormField(
+            TextFormField(
               //设置键盘类型
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
@@ -57,10 +54,10 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
                   prefixIcon: ImageUtils.assetImage('logo_phone'),
                   hintStyle: TextStyles.blackLight_16),
             ),
-             SizedBox(
+            SizedBox(
               height: 10,
             ),
-             TextFormField(
+            TextFormField(
               style: TextStyles.black_16,
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
@@ -74,7 +71,7 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
 
   //确认按钮
   Widget _sureButton() {
-    return  Container(
+    return Container(
       margin: EdgeInsets.only(left: 40, right: 40),
       height: 40,
       child: RaisedButton(
@@ -83,25 +80,23 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
         textColor: Colors.white,
         child: Text('确认登录', style: TextStyle(fontSize: 14)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
-        onPressed: () {
-
-        },
+        onPressed: () {},
       ),
     );
   }
 
-  Widget _bottomItem(){
-    return  Container(
+  Widget _bottomItem() {
+    return Container(
       margin: EdgeInsets.only(left: 28, right: 40),
-      child:  Row(
+      child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-           Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-               Checkbox(
+              Checkbox(
                   value: _isChecked,
                   activeColor: Colors.blue[400],
                   onChanged: (bool checked) {
@@ -110,22 +105,18 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
                       print(_isChecked);
                     });
                   }),
-               Text('记住密码',
-                  style: TextStyles.black_13)
+              Text('记住密码', style: TextStyles.black_13)
             ],
           ),
-           Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-               Text(
-                '短信快捷登录',
-                style: TextStyles.black_13
-              ),
-               SizedBox(
+              Text('短信快捷登录', style: TextStyles.black_13),
+              SizedBox(
                 width: 4,
               ),
-               ImageUtils.assetImage('logo_enter_next'),
+              ImageUtils.assetImage('logo_enter_next'),
             ],
           )
         ],

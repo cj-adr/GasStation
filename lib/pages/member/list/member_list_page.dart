@@ -64,7 +64,7 @@ class MemberListPage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: List.generate(100, (position) {
-                  return _MemberListItemView(position);
+                  return _MemberListItemView();
                 }),
               ),
             ),
@@ -74,16 +74,12 @@ class MemberListPage extends StatelessWidget {
 }
 
 class _MemberListItemView extends StatelessWidget {
-  final int position;
-
-  _MemberListItemView(this.position);
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        _goMemberDetail(context, position);
+        _goMemberDetail(context);
       },
       child: Container(
         width: double.infinity,
@@ -163,7 +159,7 @@ class _MemberListItemView extends StatelessWidget {
     );
   }
 
-  void _goMemberDetail(BuildContext context, int position) {
-    Navigator.pushNamed(context, '/member/detail', arguments: {'id': position});
+  void _goMemberDetail(BuildContext context) {
+    Navigator.pushNamed(context, '/member/detail', arguments: {'id': 1});
   }
 }
