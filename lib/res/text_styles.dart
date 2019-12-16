@@ -48,6 +48,10 @@ class TextStyles {
     fontSize: Dimens.font_13,
     color: Clrs.textBlackLight,
   );
+ static const TextStyle blackLight_16 = const TextStyle(
+    fontSize: Dimens.font_16,
+    color: Clrs.textBlackLight,
+  );
 
   static const TextStyle white_10 = const TextStyle(
     fontSize: Dimens.font_10,
