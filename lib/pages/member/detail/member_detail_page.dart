@@ -5,11 +5,15 @@ import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
-import 'package:gas_station/utils/text_style_utils.dart';
 
 class MemberDetailPage extends StatefulWidget {
+  final int id;
+
+  MemberDetailPage(this.id);
+
   @override
   State<StatefulWidget> createState() {
+    debugPrint("id:${id}");
     return _MemberDetailPageState();
   }
 }
