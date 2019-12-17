@@ -80,7 +80,9 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
         textColor: Colors.white,
         child: Text('确认登录', style: TextStyle(fontSize: 14)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, '/home');
+        },
       ),
     );
   }
