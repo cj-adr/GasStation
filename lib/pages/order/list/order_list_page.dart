@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gas_station/component/base_head_bar.dart';
-import 'package:gas_station/component/head_bar.dart';
+import 'package:gas_station/components/base_head_bar.dart';
+import 'package:gas_station/components/head_bar.dart';
 import 'package:gas_station/models/order/order_list_entity.dart';
 import 'package:gas_station/pages/order/detail/order_detail_page.dart';
 import 'package:gas_station/res/clrs.dart';
