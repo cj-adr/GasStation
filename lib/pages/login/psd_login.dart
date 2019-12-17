@@ -127,13 +127,13 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
   }
 
   _login() async {
-    Navigator.pushReplacementNamed(context, '/home');
-//    ResponseBean resp = await Services().login('15158081188', '123456');
-//    if (resp.success) {
-//      debugPrint(resp.data);
-//      Navigator.pushReplacementNamed(context, '/home');
-//    } else {
-//      debugPrint('error');
-//    }
+//    Navigator.pushReplacementNamed(context, '/home');
+    ResponseBean resp = await Services().login('15158081188', '123456');
+    if (resp.success) {
+      debugPrint(resp.data);
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      debugPrint('error');
+    }
   }
 }

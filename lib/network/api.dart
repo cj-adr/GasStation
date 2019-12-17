@@ -5,7 +5,8 @@ import 'package:gas_station/network/response_bean.dart';
 /// api
 class API {
   // 开发
-  var  _baseUrl = "http://k8s.gas.chuangjiangx.com/ter/";
+  var _baseUrl = "http://k8s.gas.chuangjiangx.com/ter/";
+
   // 测试
 //  var _baseUrl = "http://test.gas.ter.chuangjiangx.com/";
 //  var _baseUrl = "http://gas.ter.chuangjiangyun.com/";
@@ -15,13 +16,18 @@ class API {
   API() {
     _dio.options = BaseOptions(
       baseUrl: _baseUrl,
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: 10000,
+      receiveTimeout: 10000,
       responseType: ResponseType.json,
     );
 
     // 添加拦截器
     _dio.interceptors.add(HeaderInterceptors());
+    _dio.interceptors.add(LogInterceptor(
+        request: false,
+        requestHeader: false,
+        requestBody: true,
+        responseBody: true));
   }
 
   /// get请求接口
