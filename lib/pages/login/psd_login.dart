@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/network/response_bean.dart';
+import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
@@ -80,9 +82,7 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
         textColor: Colors.white,
         child: Text('确认登录', style: TextStyle(fontSize: 14)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
-        onPressed: () {
-          Navigator.pushReplacementNamed(context, '/home');
-        },
+        onPressed: _login,
       ),
     );
   }
@@ -124,5 +124,16 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
         ],
       ),
     );
+  }
+
+  _login() async {
+    Navigator.pushReplacementNamed(context, '/home');
+//    ResponseBean resp = await Services().login('15158081188', '123456');
+//    if (resp.success) {
+//      debugPrint(resp.data);
+//      Navigator.pushReplacementNamed(context, '/home');
+//    } else {
+//      debugPrint('error');
+//    }
   }
 }

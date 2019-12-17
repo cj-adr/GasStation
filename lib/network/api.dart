@@ -5,10 +5,10 @@ import 'package:gas_station/network/response_bean.dart';
 /// api
 class API {
   // 开发
-//  var  _baseUrl = "http://k8s.gas.chuangjiangx.com/ter/";
+  var  _baseUrl = "http://k8s.gas.chuangjiangx.com/ter/";
   // 测试
 //  var _baseUrl = "http://test.gas.ter.chuangjiangx.com/";
-  var _baseUrl = "http://gas.ter.chuangjiangyun.com/";
+//  var _baseUrl = "http://gas.ter.chuangjiangyun.com/";
 
   Dio _dio = Dio();
 
