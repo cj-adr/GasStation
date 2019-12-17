@@ -53,7 +53,7 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   hintText: '请输入手机号',
-                  prefixIcon: ImageUtils.assetImage('logo_phone'),
+                  prefixIcon: ImageUtils.assetImage('login_phone'),
                   hintStyle: TextStyles.blackLight_16),
             ),
             SizedBox(
@@ -64,7 +64,7 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
                   hintText: '请输入密码',
-                  prefixIcon: ImageUtils.assetImage('logo_password'),
+                  prefixIcon: ImageUtils.assetImage('login_password'),
                   hintStyle: TextStyles.blackLight_16),
             )
           ],
@@ -115,10 +115,8 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text('短信快捷登录', style: TextStyles.black_13),
-              SizedBox(
-                width: 4,
-              ),
-              ImageUtils.assetImage('logo_enter_next'),
+              SizedBox(width: 4),
+              ImageUtils.assetImage('login_enter_next'),
             ],
           )
         ],
