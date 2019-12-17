@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-class CodeLogin extends StatefulWidget {
+class CodeLoginPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _CodeLoginState();
+    return _CodeLoginPageState();
   }
 }
 
-class _CodeLoginState extends State<CodeLogin> {
+class _CodeLoginPageState extends State<CodeLoginPage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold();
+    return  Scaffold(
+      appBar: AppBar(title: Text('验证码登录')),
+    );
   }
 }
