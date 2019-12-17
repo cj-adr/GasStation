@@ -128,9 +128,9 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
 
   _login() async {
 //    Navigator.pushReplacementNamed(context, '/home');
-    ResponseBean resp = await Services().login('15158081188', '123456');
+    ResponseBean resp = await Services().login('15158081188', '111111');
     if (resp.success) {
-      debugPrint(resp.data);
+//      debugPrint(resp.data);
       Navigator.pushReplacementNamed(context, '/home');
     } else {
       debugPrint('error');
