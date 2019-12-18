@@ -17,18 +17,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _bottomNavigationBarTitles = List.of(['收款', '会员', '订单', '我的']);
   final _bottomNavigationBarSelectedIcons = List.of([
-    'home_pay_selected',
-    'home_member_selected',
-    'home_order_selected',
-    'home_mine_selected',
+    ImageUtils.assetImage('home_pay_selected'),
+    ImageUtils.assetImage('home_member_selected'),
+    ImageUtils.assetImage('home_order_selected'),
+    ImageUtils.assetImage('home_mine_selected'),
   ]);
 
   final _bottomNavigationBarUnselectedIcons = List.of([
-    'home_pay_unselected',
-    'home_member_unselected',
-    'home_order_unselected',
-    'home_mine_unselected',
+    ImageUtils.assetImage('home_pay_unselected'),
+    ImageUtils.assetImage('home_member_unselected'),
+    ImageUtils.assetImage('home_order_unselected'),
+    ImageUtils.assetImage('home_mine_unselected'),
   ]);
+
   final _pageList =
       List.of([PayAmountPage(), MemberListPage(), OrderListPage(), MinePage()]);
 
@@ -69,9 +70,9 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         items: List.generate(_pageList.length, (position) {
           return BottomNavigationBarItem(
-            icon: ImageUtils.assetImage(_index == position
+            icon: _index == position
                 ? _bottomNavigationBarSelectedIcons[position]
-                : _bottomNavigationBarUnselectedIcons[position]),
+                : _bottomNavigationBarUnselectedIcons[position],
             title: Text(_bottomNavigationBarTitles[position]),
           );
         }),
