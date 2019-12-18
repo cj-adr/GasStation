@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/res/text_styles.dart';
 
 class CommonButton extends StatefulWidget {
   CommonButton(
@@ -34,7 +35,7 @@ class _CommonButtonState extends State<CommonButton> {
             onPressed: _onPressed,
             child: Text(
               widget.content,
-              style: TextStyle(fontSize: 14, color: Colors.white),
+              style: TextStyles.white_14,
             ),
           ),
         ));
