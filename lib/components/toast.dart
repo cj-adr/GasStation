@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Toast {
-  static final int LENGTH_SHORT = 1;
-  static final int LENGTH_LONG = 2;
+  static final int LENGTH_SHORT = 3;
+  static final int LENGTH_LONG = 5;
   static final int BOTTOM = 0;
   static final int CENTER = 1;
   static final int TOP = 2;
