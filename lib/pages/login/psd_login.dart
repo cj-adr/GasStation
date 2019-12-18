@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/network/response_bean.dart';
 import 'package:gas_station/network/services.dart';
+import 'package:gas_station/preference/preference_manage.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
 
@@ -125,7 +126,6 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
   }
 
   _login() async {
-//    Navigator.pushReplacementNamed(context, '/home');
     ResponseBean resp = await Services().login('15158081188', '111111');
     if (resp.success) {
 //      debugPrint(resp.data);

@@ -24,7 +24,7 @@ class OrderListPageState extends State {
         child: BaseHeadBar(
           context,
           '订单列表',
-          leftIconName: 'back',
+          leftIconName: 'common_back',
           colorBg: Clrs.appBarLightBg,
         ),
         preferredSize: Size.fromHeight(60),

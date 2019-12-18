@@ -22,7 +22,7 @@ class OrderDetailPageState extends State {
         child: BaseHeadBar(
           context,
             '订单详情',
-        leftIconName: 'back',
+        leftIconName: 'common_back',
           leftText: '返回',
           rightText: '确定',
           rightTextColor: Clrs.textBlue,
