@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/components/switch_image.dart';
 import 'package:gas_station/pages/member/list/member_list_page.dart';
 import 'package:gas_station/pages/mine/mine_page.dart';
 import 'package:gas_station/pages/order/list/order_list_page.dart';
@@ -36,9 +37,11 @@ class _HomePageState extends State<HomePage> {
   var _index = 0;
 
   void _onTap(int index) {
-    setState(() {
-      _index = index;
-    });
+    if (_index != index) {
+      setState(() {
+        _index = index;
+      });
+    }
   }
 
   @override
@@ -70,9 +73,10 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         items: List.generate(_pageList.length, (position) {
           return BottomNavigationBarItem(
-            icon: _index == position
-                ? _bottomNavigationBarSelectedIcons[position]
-                : _bottomNavigationBarUnselectedIcons[position],
+            icon: SwitchImage(
+                _index == position,
+                _bottomNavigationBarSelectedIcons[position],
+                _bottomNavigationBarUnselectedIcons[position]),
             title: Text(_bottomNavigationBarTitles[position]),
           );
         }),
