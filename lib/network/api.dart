@@ -33,8 +33,8 @@ class API {
   /// get请求接口
   /// [path] 请求路径
   /// [params] 请求参数
-  Future<ResponseBean> get(path, {params}) {
-    return _handleRequest(() => _dio.get(
+  Future<ResponseBean<T>> get<T>(path, {params}) {
+    return _handleRequest<T>(() => _dio.get(
           path,
           queryParameters: params,
         ));
@@ -44,8 +44,8 @@ class API {
   /// [path] 请求路径
   /// [params] 请求参数
   /// [data] 数据
-  Future<ResponseBean> post(path, {params, data}) {
-    return _handleRequest(() => _dio.post(
+  Future<ResponseBean<T>> post<T>(path, {params, data}) {
+    return _handleRequest<T>(() => _dio.post(
           path,
           data: data,
           queryParameters: params,
@@ -53,24 +53,24 @@ class API {
   }
 
   /// 处理请求结果
-  Future<ResponseBean> _handleRequest(func) async {
+  Future<ResponseBean<T>> _handleRequest<T>(func) async {
     Response response;
     try {
       response = await func();
     } on DioError catch (e) {
-      return _handleError(e);
+      return _handleError<T>(e);
     }
 
     if (response.data is DioError) {
-      return _handleError(response.data);
+      return _handleError<T>(response.data);
     }
 
     // 返回数据
-    return ResponseBean.fromJSON(response.data);
+    return ResponseBean<T>.fromJson(response.data);
   }
 
   /// 处理异常
-  ResponseBean _handleError(DioError e) {
+  ResponseBean<T> _handleError<T>(DioError e) {
     Response errorResponse;
     if (e.response != null) {
       errorResponse = e.response;
@@ -86,7 +86,7 @@ class API {
       errorResponse.statusCode.toString(),
       "",
       false,
-      errorResponse.data,
+      null,
     );
   }
 }

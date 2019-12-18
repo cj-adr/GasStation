@@ -5,6 +5,12 @@ import 'package:gas_station/utils/text_style_utils.dart';
 import 'clrs.dart';
 
 class TextStyles {
+
+  static const TextStyle black_12 = const TextStyle(
+    fontSize: Dimens.font_12,
+    color: Clrs.textBlack,
+  );
+
   static const TextStyle black_13 = const TextStyle(
     fontSize: Dimens.font_13,
     color: Clrs.textBlack,
