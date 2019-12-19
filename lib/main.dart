@@ -23,9 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: Themes.appTheme,
       onGenerateRoute: RouteManager.buildRouteFactory(),
-      home: LoginPage(
-        type: 1,
-      ),
+      home: LoginPage(),
     );
   }
 }
