@@ -58,36 +58,6 @@ class ToastView {
 
     _overlayEntry = new OverlayEntry(
       builder: (BuildContext context) => ToastWidget(
-//        widget: Container(
-//          width: MediaQuery.of(context).size.width,
-//          child: Container(
-//              alignment: Alignment.center,
-//              width: MediaQuery.of(context).size.width,
-//              child: Container(
-//                alignment: Alignment.center,
-//                height: TOAST_HEIGHT,
-//                width: TOAST_HEIGHT,
-//                decoration: BoxDecoration(
-//                  color: background,
-//                  borderRadius: BorderRadius.circular(backgroundRadius),
-//                  border: border,
-//                ),
-////                  margin: EdgeInsets.symmetric(horizontal: 20),
-////                  padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
-//                child: Column(
-//                  mainAxisSize: MainAxisSize.min,
-//                  children: <Widget>[
-//                    ImageUtils.assetImage(iconName),
-//                    Padding(
-//                      padding: EdgeInsets.only(top: 10),
-//                      child: Text(msg,
-//                          softWrap: true,
-//                          style: TextStyle(fontSize: 15, color: textColor)),
-//                    )
-//                  ],
-//                ),
-//              )),
-//        ),
           widget: widget != null
               ? widget
               : _createIconTextWidget(context, msg, iconName, duration, gravity,

@@ -88,6 +88,6 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
   }
 
   void _toPsdLogin() {
-    ToastUtils.show(context, '账号密码30');
+    ToastUtils.showError(context, '账号密码30');
   }
 }

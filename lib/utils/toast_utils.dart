@@ -17,6 +17,7 @@ class ToastUtils {
   static Widget _createTextWidget(BuildContext context, String msg) {
     return Container(
         width: MediaQuery.of(context).size.width,
+        alignment: Alignment.center,
         child: Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
