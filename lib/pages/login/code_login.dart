@@ -7,6 +7,7 @@ import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/image_utils.dart';
+import 'package:gas_station/utils/toast_utils.dart';
 
 class CodeLoginPage extends StatefulWidget {
   @override
@@ -83,10 +84,10 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
   }
 
   void _login() {
-    Toast.show(context, '确认登录');
+    ToastUtils.showSuccess(context, '登录03');
   }
 
   void _toPsdLogin() {
-    Toast.show(context, '账号密码登录');
+    ToastUtils.showError(context, '账号密码30');
   }
 }
