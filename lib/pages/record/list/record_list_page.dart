@@ -42,6 +42,7 @@ class _RecordListWidget extends StatefulWidget {
 
 class _RecordListWidgetState extends State<_RecordListWidget> {
   final List<RecordListEntity> _recordList = [];
+  ScrollController _scrollController = ScrollController();
 
   int _state = 0;
   GlobalKey<StatusWidgetState> statusKey = GlobalKey();
@@ -50,7 +51,20 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
   void initState() {
     super.initState();
 
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        print('滑动到了最底部');
+        _getMoreData();
+      }
+    });
     _getDataList();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -61,9 +75,13 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
             key: statusKey,
             onRetry: () => _getDataList(),
           )
-        : ListView.builder(
-            itemCount: _recordList.length,
-            itemBuilder: _buildItem,
+        : RefreshIndicator(
+            onRefresh: () => _getDataList(),
+            child: ListView.builder(
+              itemCount: _recordList.length,
+              itemBuilder: _buildItem,
+              controller: _scrollController,
+            ),
           );
 
     return Container(
@@ -171,10 +189,12 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
 
   /// 获取数据
   _getDataList() async {
-    setState(() {
-      _state = 0;
-      statusKey.currentState?.refresh(_state);
-    });
+    if (null == _recordList || _recordList.isEmpty) {
+      setState(() {
+        _state = 0;
+        statusKey.currentState?.refresh(_state);
+      });
+    }
 
     var resp = await Services.findWorkRecordList(1, 20);
     setState(() {
@@ -187,6 +207,16 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
       }
 
       statusKey.currentState?.refresh(_state);
+    });
+  }
+
+  /// 获取下一页数据
+  _getMoreData() async {
+    var resp = await Services.findWorkRecordList(1, 20);
+    setState(() {
+      if (resp != null && resp.isNotEmpty) {
+        _recordList.addAll(resp);
+      }
     });
   }
 }
