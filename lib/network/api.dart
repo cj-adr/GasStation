@@ -30,6 +30,19 @@ class API {
         responseBody: true));
   }
 
+  /// 原始请求
+  Future request(RequestOptions request) async {
+    var response = await _dio.request(
+      request.path,
+      data: request.data,
+      queryParameters: request.queryParameters,
+      cancelToken: request.cancelToken,
+      options: request,
+      onReceiveProgress: request.onReceiveProgress,
+    );
+    return response;
+  }
+
   /// get请求接口
   /// [path] 请求路径
   /// [params] 请求参数
