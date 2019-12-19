@@ -1,6 +1,6 @@
 class RecordItemEntity {
-	double totalAmount;
-	double quantity;
+	num totalAmount;
+	num quantity;
 	String name;
 	int totalCount;
 

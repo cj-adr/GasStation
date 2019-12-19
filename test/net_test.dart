@@ -1,16 +1,15 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gas_station/models/user/user_entity.dart';
 import 'package:gas_station/network/api.dart';
 import 'package:gas_station/network/url_paths.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues({});
+
   test("test post", () async {
-    var params = {
-      "mobile": "15158081188",
-      "pwd": "111111",
-      "loginType": "MOBILE_PWD",
-    };
+    var params = {"mobile": "15158081188","pwd": "111111","loginType": "MOBILE_PWD"};
     var resp = await api.post<UserEntity>(UrlPaths.LOGIN_PATH, data: params);
 
     print(resp);

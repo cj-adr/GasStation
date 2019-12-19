@@ -5,6 +5,7 @@ import 'models/record/record_list_entity.dart';
 import 'models/record/record_detail_entity.dart';
 import 'models/user/role_entity.dart';
 import 'models/user/user_entity.dart';
+import 'models/list_entity.dart';
 
 class EntityFactory {
   static T generateOBJ<T>(json) {
@@ -24,6 +25,8 @@ class EntityFactory {
       return RoleEntity.fromJson(json) as T;
     } else if (T.toString() == "UserEntity") {
       return UserEntity.fromJson(json) as T;
+    } else if (T.toString() == "ListEntity" ) {
+      return ListEntity.fromJson(json) as T;
     } else {
       return null;
     }

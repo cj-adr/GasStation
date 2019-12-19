@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
+import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/date_utils.dart';
@@ -63,7 +64,9 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var content = _detail == null ? Center(child: CircularProgressIndicator()) : _buildContent();
+    var content = _detail == null
+        ? Center(child: CircularProgressIndicator())
+        : _buildContent();
 
     return content;
   }
@@ -127,7 +130,10 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
                 height: 1,
                 margin: EdgeInsets.only(top: 15, bottom: 15)),
             priceView,
-            Container(color: Clrs.backgroundColor, height: 1, margin: EdgeInsets.only(top: 15)),
+            Container(
+                color: Clrs.backgroundColor,
+                height: 1,
+                margin: EdgeInsets.only(top: 15)),
             _buildPriceListView("收银总额", _detail.orderList),
             _buildPriceListView("会员卡消费总额", _detail.mbrCardSpec),
             _buildPriceListView("油品消费统计", _detail.proSkuCount)
@@ -227,7 +233,8 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
   }
 
   Widget _get3Txt(RecordItemEntity item) {
-    return _get3Txt2(item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
+    return _get3Txt2(
+        item.name, "${item.totalCount}", "￥${item.totalAmount}", false);
   }
 
   Widget _get3Txt2(String s1, String s2, String s3, bool title) {
@@ -259,33 +266,10 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
   }
 
   /// 获取交班详情
-  _getData() {
-    // TODO
-
-    List<RecordItemEntity> list = [];
-    for (var i = 0; i < 5; i++) {
-      var item = RecordItemEntity();
-      item.name = "ABC" + i.toString();
-      item.quantity = 10;
-      item.totalAmount = 10;
-      item.totalCount = 3;
-
-      list.add(item);
-    }
-
-    var info = RecordDetailEntity();
-    info.discountAmount = 8.0;
-    info.endDate = 1543459658000;
-    info.mbrCardSpec = list;
-    info.orderAmount = 100.0;
-    info.orderList = list;
-    info.proSkuCount = list;
-    info.realPayAmount = 92.0;
-    info.startDate = 1543459658000;
-    info.userName = "张三";
-
+  _getData() async {
+    var resp = await Services.getWorkRecordDetail(widget._recordId);
     setState(() {
-      _detail = info;
+      _detail = resp;
     });
   }
 }

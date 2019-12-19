@@ -1,12 +1,12 @@
 import 'package:gas_station/models/record/record_item_entity.dart';
 
 class RecordDetailEntity {
-  double orderAmount;
+  num orderAmount;
   int endDate;
-  double discountAmount;
+  num discountAmount;
   List<RecordItemEntity> orderList;
   List<RecordItemEntity> proSkuCount;
-  double realPayAmount;
+  num realPayAmount;
   List<RecordItemEntity> mbrCardSpec;
   String userName;
   int startDate;

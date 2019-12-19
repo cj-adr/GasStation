@@ -10,7 +10,7 @@ class MinePage extends StatelessWidget {
       body: RaisedButton(
         child: Text('交班'),
         onPressed: () {
-          Navigator.pushNamed(context, '/record/detail', arguments: {'id': 1});
+          Navigator.pushNamed(context, '/record/list', arguments: {'id': 1});
         },
       ),
     );

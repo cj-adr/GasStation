@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gas_station/models/index.dart';
-import 'package:gas_station/pages/record/detail/record_detail_page.dart';
+import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/text_styles.dart';
 import 'package:gas_station/utils/date_utils.dart';
@@ -58,7 +58,8 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
             itemBuilder: _buildItem,
           );
 
-    return Container(decoration: BoxDecoration(color: Clrs.backgroundColor), child: content);
+    return Container(
+        decoration: BoxDecoration(color: Clrs.backgroundColor), child: content);
   }
 
   Widget _buildItem(BuildContext context, int index) {
@@ -143,8 +144,11 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
 
   /// 跳转到详情页
   _gotoRecordDetailPage(RecordListEntity record) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => RecordDetailPage(record.workRecordId)));
+    Navigator.pushNamed(
+      context,
+      '/record/detail',
+      arguments: {"id": record.workRecordId},
+    );
   }
 
   /// 处理点击
@@ -158,19 +162,13 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
   }
 
   /// 获取数据
-  _getDataList() {
-    List<RecordListEntity> list = [];
-    for (var i = 0; i < 3; i++) {
-      RecordListEntity value = RecordListEntity();
-      value.endDate = 1543459658000;
-      value.workRecordId = i + 1;
-      value.orderAmount = 10.0 + i;
-      list.add(value);
-    }
-
+  _getDataList() async {
+    var resp = await Services.findWorkRecordList(1, 20);
     setState(() {
-      _recordList.clear();
-      _recordList.addAll(list);
+      if (resp != null && resp.isNotEmpty) {
+        _recordList.clear();
+        _recordList.addAll(resp);
+      }
     });
   }
 }

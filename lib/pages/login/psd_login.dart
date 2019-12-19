@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/models/user/user_entity.dart';
 import 'package:gas_station/network/response_bean.dart';
 import 'package:gas_station/network/services.dart';
 import 'package:gas_station/preference/preference_manage.dart';
@@ -83,7 +84,7 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
         textColor: Colors.white,
         child: Text('确认登录', style: TextStyle(fontSize: 14)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
-        onPressed: _login,
+        onPressed: () =>_login(),
       ),
     );
   }
@@ -126,9 +127,10 @@ class _PsdLoginPageState extends State<PsdLoginPage> {
   }
 
   _login() async {
-    ResponseBean resp = await Services().login('15158081188', '111111');
+    ResponseBean<UserEntity> resp = await Services.login('15158081188', '111111');
     if (resp.success) {
-//      debugPrint(resp.data);
+      /// 保存token
+      await PreferenceManage.setToken(resp.data.token);
       Navigator.pushReplacementNamed(context, '/home');
     } else {
       debugPrint('error');
