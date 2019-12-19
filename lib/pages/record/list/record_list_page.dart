@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/components/status_widget.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/clrs.dart';
@@ -42,6 +43,9 @@ class _RecordListWidget extends StatefulWidget {
 class _RecordListWidgetState extends State<_RecordListWidget> {
   final List<RecordListEntity> _recordList = [];
 
+  int _state = 0;
+  GlobalKey<StatusWidgetState> statusKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
@@ -51,8 +55,12 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var content = _recordList.isEmpty
-        ? Center(child: CircularProgressIndicator())
+    var content = _state != 2
+        ? StatusWidget(
+            _state,
+            key: statusKey,
+            onRetry: () => _getDataList(),
+          )
         : ListView.builder(
             itemCount: _recordList.length,
             itemBuilder: _buildItem,
@@ -163,12 +171,22 @@ class _RecordListWidgetState extends State<_RecordListWidget> {
 
   /// 获取数据
   _getDataList() async {
+    setState(() {
+      _state = 0;
+      statusKey.currentState?.refresh(_state);
+    });
+
     var resp = await Services.findWorkRecordList(1, 20);
     setState(() {
       if (resp != null && resp.isNotEmpty) {
+        _state = 2;
         _recordList.clear();
         _recordList.addAll(resp);
+      } else {
+        _state = -1;
       }
+
+      statusKey.currentState?.refresh(_state);
     });
   }
 }

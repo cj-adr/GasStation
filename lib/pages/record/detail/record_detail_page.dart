@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station/components/status_widget.dart';
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/clrs.dart';
@@ -54,6 +55,8 @@ class _RecordDetailWidget extends StatefulWidget {
 
 class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
   RecordDetailEntity _detail;
+  int _state = 0;
+  GlobalKey<StatusWidgetState> statusKey = GlobalKey();
 
   @override
   void initState() {
@@ -64,8 +67,12 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var content = _detail == null
-        ? Center(child: CircularProgressIndicator())
+    var content = _state != 2
+        ? StatusWidget(
+            _state,
+            key: statusKey,
+            onRetry: () => _getData(),
+          )
         : _buildContent();
 
     return content;
@@ -267,9 +274,21 @@ class _RecordDetailWidgetState extends State<_RecordDetailWidget> {
 
   /// 获取交班详情
   _getData() async {
+    setState(() {
+      _state = 0;
+      statusKey.currentState?.refresh(_state);
+    });
+
     var resp = await Services.getWorkRecordDetail(widget._recordId);
     setState(() {
-      _detail = resp;
+      if (null != resp) {
+        _state = 2;
+        _detail = resp;
+      } else {
+        _state = -1;
+      }
+
+      statusKey.currentState?.refresh(_state);
     });
   }
 }
