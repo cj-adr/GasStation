@@ -1,11 +1,17 @@
 import 'package:gas_station/models/index.dart';
 import 'package:gas_station/models/list_entity.dart';
+import 'package:gas_station/models/login/code_entity.dart';
 import 'package:gas_station/models/user/user_entity.dart';
 import 'package:gas_station/network/api.dart';
 import 'package:gas_station/network/response_bean.dart';
 import 'package:gas_station/network/url_paths.dart';
 
 class Services {
+
+  static Future<ResponseBean<CodeEntity>> getCodeForLogin(String mobile){
+
+  }
+
   static Future<ResponseBean<UserEntity>> login(
       String mobile, String pwd) async {
     var body = {"mobile": mobile, "pwd": pwd, "loginType": "MOBILE_PWD"};

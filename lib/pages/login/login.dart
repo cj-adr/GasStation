@@ -6,7 +6,7 @@ class LoginPage extends StatelessWidget {
   //登录类型：0，验证码登录；1，密码登录
   int type;
 
-  LoginPage({this.type = 1});
+  LoginPage({this.type});
 
   @override
   Widget build(BuildContext context) {

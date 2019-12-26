@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gas_station/components/common_button.dart';
+import 'package:gas_station/components/down_count.dart';
 import 'package:gas_station/components/text_icon_button.dart';
 import 'package:gas_station/components/toast.dart';
 import 'package:gas_station/res/clrs.dart';
@@ -46,23 +47,20 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
       margin: EdgeInsets.only(top: 50, left: 40, right: 40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           TextField(
             decoration: InputDecoration(
                 hintText: '请输入手机号',
                 hintStyle: TextStyles.blackLight_16,
-                prefixIcon: ImageUtils.assetImage('login_phone', scale: 3)),
+                prefixIcon: ImageUtils.assetImage('login_phone', scale: 3),
+                border: InputBorder.none),
             keyboardType: TextInputType.number,
           ),
+          Divider(),
           SizedBox(height: 15),
-          TextField(
-            decoration: InputDecoration(
-                hintText: '请输入验证码',
-                hintStyle: TextStyles.blackLight_16,
-                prefixIcon: ImageUtils.assetImage('login_code', scale: 3)),
-            keyboardType: TextInputType.number,
-          ),
+          Flexible(child: _createCodeItem(),),
+          Divider(),
           CommonButton(
             margin: EdgeInsets.only(top: 35),
             onPressed: _login,
@@ -73,14 +71,40 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
     );
   }
 
+  Widget _createCodeItem() {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Flexible(
+        child:   TextField(
+        decoration: InputDecoration(
+            hintText: '请输入验证码',
+            hintStyle: TextStyles.blackLight_16,
+            prefixIcon: ImageUtils.assetImage('login_code', scale: 3),
+            border: InputBorder.none),
+        keyboardType: TextInputType.number,
+      ),),
+
+        Flexible(child:  DownCount(
+          onPressed: _getCode,
+        ))
+      ],
+    );
+  }
+
   Widget _createBottomItem() {
     return Container(
-      margin: EdgeInsets.only(right: 40,top: 25),
+      margin: EdgeInsets.only(right: 40, top: 25),
       child: TextIconButton(
           text: '账号密码登录',
           icon: ImageUtils.assetImage('login_enter_next'),
           onPressed: _toPsdLogin),
     );
+  }
+
+  void _getCode(){
+
   }
 
   void _login() {

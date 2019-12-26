@@ -1,11 +1,12 @@
-import 'models/order/order_list_entity.dart';
-import 'models/order/order_refund_list_entity.dart';
-import 'models/record/record_item_entity.dart';
-import 'models/record/record_list_entity.dart';
-import 'models/record/record_detail_entity.dart';
-import 'models/user/role_entity.dart';
-import 'models/user/user_entity.dart';
-import 'models/list_entity.dart';
+import 'package:GasStation/models/order/order_list_entity.dart';
+import 'package:GasStation/models/order/order_refund_list_entity.dart';
+import 'package:GasStation/models/record/record_item_entity.dart';
+import 'package:GasStation/models/record/record_list_entity.dart';
+import 'package:GasStation/models/record/record_detail_entity.dart';
+import 'package:GasStation/models/user/role_entity.dart';
+import 'package:GasStation/models/user/user_entity.dart';
+import 'package:GasStation/models/list_entity.dart';
+import 'package:GasStation/models/login/code_entity.dart';
 
 class EntityFactory {
   static T generateOBJ<T>(json) {
@@ -25,8 +26,10 @@ class EntityFactory {
       return RoleEntity.fromJson(json) as T;
     } else if (T.toString() == "UserEntity") {
       return UserEntity.fromJson(json) as T;
-    } else if (T.toString() == "ListEntity" ) {
+    } else if (T.toString() == "ListEntity") {
       return ListEntity.fromJson(json) as T;
+    } else if (T.toString() == "CodeEntity") {
+      return CodeEntity.fromJson(json) as T;
     } else {
       return null;
     }
