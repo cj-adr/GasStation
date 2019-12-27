@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gas_station/pages/home/home_page.dart';
 import 'package:gas_station/pages/login/login.dart';
-import 'package:gas_station/pages/test/test.dart';
 import 'package:gas_station/res/themes.dart';
 import 'package:gas_station/router/route_manager.dart';
 
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: Themes.appTheme,
       onGenerateRoute: RouteManager.buildRouteFactory(),
-      home: buildTest(),
+      home: HomePage(),
     );
   }
 }
