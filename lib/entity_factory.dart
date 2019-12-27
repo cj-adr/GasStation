@@ -1,12 +1,12 @@
-import 'package:GasStation/models/order/order_list_entity.dart';
-import 'package:GasStation/models/order/order_refund_list_entity.dart';
-import 'package:GasStation/models/record/record_item_entity.dart';
-import 'package:GasStation/models/record/record_list_entity.dart';
-import 'package:GasStation/models/record/record_detail_entity.dart';
-import 'package:GasStation/models/user/role_entity.dart';
-import 'package:GasStation/models/user/user_entity.dart';
-import 'package:GasStation/models/list_entity.dart';
-import 'package:GasStation/models/login/code_entity.dart';
+import 'package:gas_station/models/list_entity.dart';
+import 'package:gas_station/models/login/code_entity.dart';
+import 'package:gas_station/models/order/order_list_entity.dart';
+import 'package:gas_station/models/order/order_refund_list_entity.dart';
+import 'package:gas_station/models/record/record_detail_entity.dart';
+import 'package:gas_station/models/record/record_item_entity.dart';
+import 'package:gas_station/models/record/record_list_entity.dart';
+import 'package:gas_station/models/user/role_entity.dart';
+import 'package:gas_station/models/user/user_entity.dart';
 
 class EntityFactory {
   static T generateOBJ<T>(json) {

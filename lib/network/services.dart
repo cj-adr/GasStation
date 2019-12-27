@@ -8,8 +8,11 @@ import 'package:gas_station/network/url_paths.dart';
 
 class Services {
 
-  static Future<ResponseBean<CodeEntity>> getCodeForLogin(String mobile){
+  static Future<ResponseBean<CodeEntity>> getCodeForLogin(String mobile) async{
+    var body = {"mobile":mobile};
+    var resp = await api.post<CodeEntity>(UrlPaths.CODE_LOGIN_PATH,data: body);
 
+    return resp;
   }
 
   static Future<ResponseBean<UserEntity>> login(

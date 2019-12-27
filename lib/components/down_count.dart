@@ -11,7 +11,7 @@ class DownCount extends StatefulWidget {
 
   VoidCallback onPressed;
 
-  DownCount({Key key, this.text = "获取验证码", this.countDownNum = 60, this.endText, this.onPressed});
+  DownCount({Key key, this.text = "获取验证码", this.countDownNum = 60, this.endText, this.onPressed}):super(key:key);
 
   @override
   State<StatefulWidget> createState() {

@@ -4,6 +4,7 @@ import 'package:gas_station/components/common_button.dart';
 import 'package:gas_station/components/down_count.dart';
 import 'package:gas_station/components/text_icon_button.dart';
 import 'package:gas_station/components/toast.dart';
+import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
 import 'package:gas_station/res/text_styles.dart';
@@ -104,6 +105,7 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
   }
 
   void _getCode(){
+      var codeBean = Services.getCodeForLogin('13865176986');
 
   }
 
