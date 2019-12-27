@@ -4,6 +4,8 @@ import 'package:gas_station/components/common_button.dart';
 import 'package:gas_station/components/down_count.dart';
 import 'package:gas_station/components/text_icon_button.dart';
 import 'package:gas_station/components/toast.dart';
+import 'package:gas_station/models/login/code_entity.dart';
+import 'package:gas_station/network/response_bean.dart';
 import 'package:gas_station/network/services.dart';
 import 'package:gas_station/res/clrs.dart';
 import 'package:gas_station/res/dimens.dart';
@@ -60,7 +62,9 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
           ),
           Divider(),
           SizedBox(height: 15),
-          Flexible(child: _createCodeItem(),),
+          Flexible(
+            child: _createCodeItem(),
+          ),
           Divider(),
           CommonButton(
             margin: EdgeInsets.only(top: 35),
@@ -78,16 +82,17 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Flexible(
-        child:   TextField(
-        decoration: InputDecoration(
-            hintText: '请输入验证码',
-            hintStyle: TextStyles.blackLight_16,
-            prefixIcon: ImageUtils.assetImage('login_code', scale: 3),
-            border: InputBorder.none),
-        keyboardType: TextInputType.number,
-      ),),
-
-        Flexible(child:  DownCount(
+          child: TextField(
+            decoration: InputDecoration(
+                hintText: '请输入验证码',
+                hintStyle: TextStyles.blackLight_16,
+                prefixIcon: ImageUtils.assetImage('login_code', scale: 3),
+                border: InputBorder.none),
+            keyboardType: TextInputType.number,
+          ),
+        ),
+        Flexible(
+            child: DownCount(
           onPressed: _getCode,
         ))
       ],
@@ -104,9 +109,14 @@ class _CodeLoginPageState extends State<CodeLoginPage> {
     );
   }
 
-  void _getCode(){
-      var codeBean = Services.getCodeForLogin('13865176986');
-
+  void _getCode() async {
+    ResponseBean<CodeEntity> codeBean =
+        await Services.getCodeForLogin('15158081188');
+    if (codeBean.success) {
+      ToastUtils.showSuccess(context, '获取验证码成功');
+    } else {
+      ToastUtils.showError(context, '获取验证码失败');
+    }
   }
 
   void _login() {
